@@ -16,6 +16,6 @@ set systemenvironment
  Twitter_ACCESS_TOKEN_KEY,
  Twitter_ACCESS_TOKEN_SECRET
 
-node setver.js
+node server.js
 ng s
 </pre>
