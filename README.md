@@ -5,9 +5,9 @@ angular simple twitter client
 node 12
 
 #install
- git clone https://github.com/hideume/ang-simple-twitter
+ `git clone https://github.com/hideume/ang-simple-twitter
  cd ang-simple-twitter
- npm install
+ npm install`
 
 set systemenvironment
  Twitter_CONSUMER_KEY,
