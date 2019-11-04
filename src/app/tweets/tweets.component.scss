@@ -1,0 +1,12 @@
+.tweets {
+    width: 100%;
+    display: flex;
+    //flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+.card {
+  margin: 5px;    
+  padding: 5px;
+    width: 48%;
+}
