@@ -4,7 +4,8 @@ angular simple twitter client
 # requirement
 node 12
 
-#install
+# install
+<pre>
  `git clone https://github.com/hideume/ang-simple-twitter
  cd ang-simple-twitter
  npm install`
@@ -15,5 +16,6 @@ set systemenvironment
  Twitter_ACCESS_TOKEN_KEY,
  Twitter_ACCESS_TOKEN_SECRET
 
-<font="red">node setver.js</font>
+node setver.js
 ng s
+</pre>
