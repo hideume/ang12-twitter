@@ -1,4 +1,4 @@
-# ang-simlpe-twitter
+# ang-simple-twitter
 angular simple twitter client
 
 # requirement
