@@ -4,6 +4,7 @@
   .retweeted {
     font-size: 0.5rem;
     font-style: italic;
+    margin:5px;
   }
 
   .card-header-actions {
@@ -13,8 +14,8 @@
   }
 }
 .card-block {
-  //display: grid;
-  display: block;
+  display: flex;
+  //display: block;
   //grid-template-columns: 1fr 300px;
   //grid-template-rows: 1fr;
   //grid-template-areas: 'text photo';
@@ -23,7 +24,7 @@
   //grid-area: photo;
   text-align: right;
   img {
-    display: inline;
+    display: flexbox;
     //display: flex;
     text-align: right;
     //float: right;
@@ -33,12 +34,14 @@
   }
 }
 .card-text {
-  display: inline;
+  display: flexbox;
   //width: 100%;
   //grid-area: text;
   //width: 400px;
   //float: left;
-  text-align: left;
+  align-item: flax-start;
+  margin:3px;
+  //text-align: top,left;
 }
 
 ::ng-deep {
