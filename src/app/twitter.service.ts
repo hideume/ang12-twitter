@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
-import { Tweet } from './tweet';
+
 
 export interface TwitterResponse {
   data: any;
@@ -19,6 +19,10 @@ export class TwitterService {
 
   home(since?: string) {
     return this.http.get<TwitterResponse>(`${environment.api}/home?since=${since}`);
+  }
+
+  limit() {
+    return this.http.get<TwitterResponse>(`${environment.api}/limit`);
   }
 
   action(property: 'favorite'|'retweet', id: string, state: boolean) {

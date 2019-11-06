@@ -4,7 +4,11 @@
       <a class="nav-link">
         <div class="title">Simple Switter</div>
       </a>
-    </div>
+      <span style="width:50px">  </span>
+      <a routerLink="tweets" class="title">tweets</a>
+      <span style="width:50px">  </span>
+      <a routerLink="limit"class="title">limit</a>
+  </div>
     <div class="header-actions" *ngIf="user">
       <a class="nav-link">
         <span class="nav-text">
@@ -16,7 +20,8 @@
   </clr-header>
   <div class="content-container">
     <main class="content-area">
-      <app-tweets></app-tweets>
+      <router-outlet></router-outlet>
+      <!-- <app-tweets></app-tweets> -->
     </main>
   </div>
 </clr-main-container>

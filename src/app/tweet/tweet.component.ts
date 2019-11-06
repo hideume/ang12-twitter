@@ -23,4 +23,8 @@ export class TweetComponent {
   toggleAction(property: 'favorite'|'retweet') {
     this.action.emit({property, tweet: this.tweet});
   }
+
+  TWstatus(msg: any){
+    console.log(msg);
+  }
 }

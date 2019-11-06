@@ -2,8 +2,10 @@
   <img [src]="tweet.user.profile_image_url_https" class="avatar" /> {{tweet.user.name}} (@{{tweet.user.screen_name}})
   <span *ngIf="retweet" class="retweeted"><clr-icon shape="sync"></clr-icon> Retweeted by {{retweet.user.name}} (@{{retweet.user.screen_name}})</span>
   <div class="card-header-actions">
-    <button type="button" class="btn btn-icon" [ngClass]="{'btn-success': tweet.favorited}" (click)="toggleAction('favorite')"><clr-icon shape="heart"></clr-icon> {{tweet.favorite_count}}</button>
-    <button type="button" class="btn btn-icon" [ngClass]="{'btn-success': tweet.retweeted}" (click)="toggleAction('retweet')"><clr-icon shape="share"></clr-icon> {{tweet.retweet_count}}</button>
+    <button type="button" class="btn btn-icon" [ngClass]="{'btn-success': tweet.favorited}" (click)="toggleAction('favorite')">
+      <clr-icon shape="heart"></clr-icon> {{tweet.favorite_count}}</button>
+    <button type="button" class="btn btn-icon" [ngClass]="{'btn-success': tweet.retweeted}" (click)="toggleAction('retweet')">
+      <clr-icon shape="share"></clr-icon> {{tweet.retweet_count}}</button>
   </div>
 </div>
 <div class="card-block">

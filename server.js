@@ -45,6 +45,21 @@ app.get('/api/home', (req, res) => {
   }
 });
 
+app.get('/api/limit',(req,res) => {
+    //console.log("call limit");
+    const params = { };
+    client
+    .get('application/rate_limit_status',params)
+    .then(data => {
+      //console.log("call limit ok");
+      //console.log("resource=");
+      //console.log(data.data.resources);
+      res.send(data)
+    })
+    .catch(error => res.send(error));  
+});
+
+
 app.post('/api/favorite/:id', (req, res) => {
   const path = req.body.state ? 'create' : 'destroy';
   client

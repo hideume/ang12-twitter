@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { TweetComponent } from './tweet/tweet.component';
 import { TweetsComponent } from './tweets/tweets.component';
 import { TweetPipe } from './tweet.pipe';
+import { LimitComponent } from './limit/limit.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,7 @@ import { TweetPipe } from './tweet.pipe';
     TweetComponent,
     TweetsComponent,
     TweetPipe,
+    LimitComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,6 +26,7 @@ import { TweetPipe } from './tweet.pipe';
     BrowserAnimationsModule,
     ClarityModule,
     MomentModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
