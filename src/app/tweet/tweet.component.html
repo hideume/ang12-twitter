@@ -17,12 +17,12 @@
 <div class="card-footer" *ngIf="!retweet">
     {{tweet.created_at | amTimeAgo}} 
     <clr-icon shape="minus"></clr-icon> 
-    {{tweet.created_at | date:'medium'}}
+    {{tweet.created_at | date:'yyyy MM/dd HH:mm:SS'}}
 </div>
 <div class="card-footer" *ngIf="retweet">
     {{retweet.created_at | amTimeAgo}} 
     <clr-icon shape="minus"></clr-icon> 
-    {{retweet.created_at | date:'medium'}}
+    {{retweet.created_at | date:'yyyy MM/dd HH:mm:SS'}}
 </div>
 <clr-modal [(clrModalOpen)]="media" *ngIf="tweet.entities.media" clrModalSize="lg">
   <h3 class="modal-title"><img [src]="tweet.user.profile_image_url_https" class="avatar" /> {{tweet.user.name}} (@{{tweet.user.screen_name}})

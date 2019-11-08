@@ -1,4 +1,5 @@
 .card-header {
+  display: inline;
   padding: 0;
 
   .retweeted {
@@ -8,9 +9,12 @@
   }
 
   .card-header-actions {
-    display: inline;
+    display: inline-block;
     //float: right;
     text-align: right;
+  }
+  .avater {
+    height: 15px;
   }
 }
 .card-block {
@@ -35,6 +39,7 @@
 }
 .card-text {
   display: flexbox;
+  //max-height: 50px;
   //width: 100%;
   //grid-area: text;
   //width: 400px;
