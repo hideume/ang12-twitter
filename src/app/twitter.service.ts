@@ -21,6 +21,11 @@ export class TwitterService {
     return this.http.get<TwitterResponse>(`${environment.api}/home?since=${since}`);
   }
 
+  userhome(screen_name: string) {
+    console.log(screen_name);
+    return this.http.get<TwitterResponse>(`${environment.api}/userhome?screen_name=${screen_name}`);
+  }
+
   limit() {
     return this.http.get<TwitterResponse>(`${environment.api}/limit`);
   }

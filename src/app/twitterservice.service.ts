@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   
  })
 
-export class TwitterService {
+export class TwitterServiceOld {
 
   api_url = 'http://localhost:3000';
     

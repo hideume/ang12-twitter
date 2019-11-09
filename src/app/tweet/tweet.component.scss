@@ -25,10 +25,10 @@
   //grid-template-areas: 'text photo';
 }
 .card-img {
+  display: flexbox;
   //grid-area: photo;
   text-align: right;
   img {
-    display: flexbox;
     //display: flex;
     text-align: right;
     //float: right;
