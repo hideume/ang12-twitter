@@ -1,6 +1,6 @@
 <div class="card-header">
   <img [src]="tweet.user.profile_image_url_https" class="avatar" /> {{tweet.user.name}} 
-  (<a routerLink="userhome/{{tweet.user.screen_name}}" >@{{tweet.user.screen_name}}</a>)
+  (<a routerLink="/userhome/{{tweet.user.screen_name}}" >@{{tweet.user.screen_name}}</a>)
   <span *ngIf="retweet" class="retweeted"><clr-icon shape="sync"></clr-icon> Retweeted by {{retweet.user.name}} (@{{retweet.user.screen_name}})</span>
   <div class="card-header-actions">
     <button type="button" class="btn btn-icon" [ngClass]="{'btn-success': tweet.favorited}" (click)="toggleAction('favorite')">
