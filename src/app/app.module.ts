@@ -30,6 +30,9 @@ import { UserTimelineComponent } from './user-timeline/user-timeline.component';
     MomentModule,
     AppRoutingModule
   ],
+  exports: [
+    UserTimelineComponent
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
