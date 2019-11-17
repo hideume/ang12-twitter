@@ -11,6 +11,7 @@ export class TweetPipe implements PipeTransform {
 
   transform(tweet: Tweet, args?: any): any {
     let text = this.sanitizer.sanitize(SecurityContext.NONE, tweet.full_text);
+    if (!text)text = tweet.text;
 
     // Replace screen names with links
     if (tweet.entities.user_mentions) {

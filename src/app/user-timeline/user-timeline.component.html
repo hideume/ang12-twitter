@@ -1,18 +1,11 @@
 <div *ngIf="undefined === myData">Loading...</div>
 <div *ngIf="undefined !== myData" >
   <div  style="display:flex;flex-flow: row wrap;width: 100%">   
-    <ng-container *ngFor="let tweets of myData.data" >
+    <ng-container *ngFor="let tweet of myData; let i = index" >
       <div class="card" style="width:48%;margin: 5px;padding: 5px;">
-      <div>{{tweets.created_at|date:"yyyy MM/dd HH:mm:ss"}}&nbsp;{{tweets.user.name}}&nbsp;@{{tweets.user.screen_name}}</div>
-      <div>{{tweets.text}}</div>
+      <app-tweet [tweet]="tweet" (action)="action($event, i)"></app-tweet>
     </div>
     </ng-container>
   </div>
 </div>
 
-<!-- <div class="tweets">
-  <div class="card" *ngFor="let tweet of myData; let i = index"> {{i|number:'3.0-0'}}
-    <app-tweet *ngIf="tweet.retweeted_status" [tweet]="tweet.retweeted_status" [retweet]="tweet" (action)="action($event, i)"></app-tweet>
-    <app-tweet *ngIf="!tweet.retweeted_status" [tweet]="tweet" (action)="action($event, i)"></app-tweet>
-  </div>
-</div> -->
