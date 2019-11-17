@@ -1,9 +1,10 @@
 {
-  "name": "tw2",
-  "version": "0.0.0",
+  "name": "ang-simple-twitter",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng s",
+    "server": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
