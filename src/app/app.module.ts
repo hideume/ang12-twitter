@@ -6,9 +6,9 @@ import { ClarityModule } from '@clr/angular';
 import { MomentModule } from 'angular2-moment';
 
 import { AppComponent } from './app.component';
-import { TweetComponent } from './tweet/tweet.component';
+import { TweetComponent } from './shared/tweet.component';
 import { TweetsComponent } from './tweets/tweets.component';
-import { TweetPipe } from './tweet.pipe';
+import { TweetPipe } from './shared/tweet.pipe';
 import { LimitComponent } from './limit/limit.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UserTimelineComponent } from './user-timeline/user-timeline.component';

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { Tweet } from '../tweet';
+import { Tweet } from '../shared/tweet';
 import { TwitterService } from '../twitter.service';
 import { AppComponent } from '../app.component';
 

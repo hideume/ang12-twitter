@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 //import { TwitterService } from '../twitterservice.service'
 import { TwitterService } from '../twitter.service';
-import { Tweet } from '../tweet';
+import { Tweet } from '../shared/tweet';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
