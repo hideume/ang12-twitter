@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 //import { TwitterService } from '../twitterservice.service'
 import { TwitterService } from '../twitter.service';
-//import { Tweet } from '../tweet';
+import { Tweet } from '../tweet';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -14,7 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 
 export class UserTimelineComponent implements OnInit{
 
-  myData;
+  myData:Tweet[] =[];
   ids = [];
   api_url = 'http://localhost:3000';
     
@@ -27,8 +27,8 @@ export class UserTimelineComponent implements OnInit{
       this.twitter.userhome(name)
         .subscribe(tweets => 
         {
-          this.myData = tweets;
-          /*
+          //this.myData = tweets;
+          
           tweets.data.reverse().forEach(tweet => 
           {
             if (this.ids.indexOf(tweet.id_str) < 0) 
@@ -38,7 +38,7 @@ export class UserTimelineComponent implements OnInit{
               this.myData.unshift(tweet);
             }
           })
-          */
+          
         })
     }
 
