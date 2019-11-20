@@ -17,7 +17,11 @@ export class TwitterService {
     return this.http.get<TwitterResponse>(`${environment.api}/user`);
   }
 
-  home(since?: string) {
+  users(sc: string) {
+    return this.http.get<TwitterResponse>(`${environment.api}/users?screen_name=${sc}`);
+  }
+
+ home(since?: string) {
     return this.http.get<TwitterResponse>(`${environment.api}/home?since=${since}`);
   }
 

@@ -12,6 +12,7 @@ import { TweetPipe } from './shared/tweet.pipe';
 import { LimitComponent } from './limit/limit.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UserTimelineComponent } from './user-timeline/user-timeline.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { UserTimelineComponent } from './user-timeline/user-timeline.component';
     TweetsComponent,
     TweetPipe,
     LimitComponent,
-    UserTimelineComponent
+    UserTimelineComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

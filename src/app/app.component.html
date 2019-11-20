@@ -12,7 +12,7 @@
       <a routerLink="limit"class="title">limit</a>
   </div>
     <div class="header-actions" *ngIf="user">
-      <a class="nav-link">
+      <a class="nav-link" routerLink="/users/{{user.screen_name}}">
         <span class="nav-text">
           <img [src]="user.profile_image_url_https" class="avatar" />
           @{{user.screen_name}}

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LimitComponent } from '../app/limit/limit.component';
 import { TweetsComponent } from '../app/tweets/tweets.component';
 import { UserTimelineComponent } from './user-timeline/user-timeline.component';
+import { UserComponent } from './user/user.component';
 
 //const routes: Routes = [];
 
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'userhome/:screen_name',
     component: UserTimelineComponent
+  },
+  {
+    path: 'users/:screen_name',
+    component: UserComponent
   },
 ];
 

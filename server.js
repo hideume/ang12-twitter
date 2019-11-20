@@ -23,6 +23,19 @@ app.get('/api/user', (req, res) => {
     });
 });
 
+
+app.get('/api/users', (req, res) => {
+  const params = { screen_name: req.query.screen_name };
+  client
+    .get('users/show',params)
+    .then(user => {
+      res.send(user);
+    })
+    .catch(error => {
+      res.send(error);
+    });
+});
+
 let cache = [];
 let cacheAge = 0;
 
