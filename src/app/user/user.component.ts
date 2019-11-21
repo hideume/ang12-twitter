@@ -17,7 +17,7 @@ export class UserComponent implements OnInit {
     var name = this.route.snapshot.paramMap.get('screen_name');  
     this.twitter.users(name)
     .subscribe(dt=>{
-      this.userres = dt;
+      this.userres = dt.data;
     });
     //console.log(this.userres.data);
   }

@@ -1,3 +1,11 @@
-<p>{{userres.data.name}}</p>
-<p>{{userres.data.location}}</p>
-<p>{{userres.data.description}}</p>
+<div style="display: flex;align-items: flex-start;">
+<div>
+<img src={{userres.profile_image_url}} />
+<p>{{userres.name}}</p>
+</div>
+<img src={{userres.profile_banner_url}} style="width:300px"/>
+<div>
+<p>{{userres.location}}</p>
+<p>{{userres.description}}</p>
+</div>
+</div>
