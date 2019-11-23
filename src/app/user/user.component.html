@@ -1,11 +1,13 @@
 <div style="display: flex;align-items: flex-start;">
 <div>
-<img src={{userres.profile_image_url}} />
+<img [src]="userres.profile_image_url" />
 <p>{{userres.name}}</p>
 </div>
-<img src={{userres.profile_banner_url}} style="width:300px"/>
+<img [src]="userres.profile_banner_url" style="width:300px"/>
 <div>
 <p>{{userres.location}}</p>
 <p>{{userres.description}}</p>
 </div>
 </div>
+<p>ツイート数:{{userres.statuses_count}}&nbsp;フォロアー:{{userres.followers_count}}&nbsp;フォロー:{{userres.friends_count}}&nbsp;linnked:{{userres.listed_count}}&nbsp;created:{{userres.created_at| date:'yyyy MM/dd HH:mm:SS'}}</p>
+    

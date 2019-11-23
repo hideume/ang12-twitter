@@ -4,6 +4,7 @@ import { LimitComponent } from '../app/limit/limit.component';
 import { TweetsComponent } from '../app/tweets/tweets.component';
 import { UserTimelineComponent } from './user-timeline/user-timeline.component';
 import { UserComponent } from './user/user.component';
+import { RetweetComponent } from './retweet/retweet.component';
 
 //const routes: Routes = [];
 
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'users/:screen_name',
     component: UserComponent
+  },
+  {
+    path: 'retweet/:id',
+    component: RetweetComponent
   },
 ];
 

@@ -1,0 +1,11 @@
+<p> retweet status </p>
+<table   border="1" style="border-collapse: collapse">
+    <tbody>
+    <tr *ngFor="let tweet of retweets; let i = index">
+    <td>{{i}}</td>
+    <td>{{tweet.created_at| date:"yyyy MM/dd HH:mm:SS"}}</td>
+    <td>{{tweet.user.name}}</td>
+    <td>{{tweet.user.location}}</td>
+    </tr>
+    </tbody>
+</table>

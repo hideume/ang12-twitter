@@ -5,7 +5,9 @@
   <span *ngIf="retweet" class="retweeted"><clr-icon shape="sync"></clr-icon> Retweeted by {{retweet.user.name}} (@{{retweet.user.screen_name}})</span>
   <div class="card-header-actions" style="font-size: small;">
       <img src="../../assets/img/hart.png" style="width:14px;" (click)="toggleAction('favorite')"/> {{tweet.favorite_count}}
-    <img src="../../assets/img/re3.png" (click)="toggleAction('retweet')"/> {{tweet.retweet_count}}
+    <img src="../../assets/img/re3.png" (click)="toggleAction('retweet')"/>
+    <a *ngIf="retweet" routerLink="/retweet/{{tweet.id_str}}">{{tweet.retweet_count}}</a>
+    <span *ngIf="!retweet" >{{tweet.retweet_count}}</span>
   </div>
 </div>
 <div class="card-block">

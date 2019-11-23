@@ -26,12 +26,16 @@ export class TwitterService {
   }
 
   userhome(screen_name: string) {
-    console.log(screen_name);
+    //console.log(screen_name);
     return this.http.get<TwitterResponse>(`${environment.api}/userhome?screen_name=${screen_name}`);
   }
 
   limit() {
     return this.http.get<TwitterResponse>(`${environment.api}/limit`);
+  }
+
+  retweet(id: string) {
+    return this.http.get<TwitterResponse>(`${environment.api}/retweet?id=${id}`);
   }
 
   action(property: 'favorite'|'retweet', id: string, state: boolean) {

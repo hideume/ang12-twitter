@@ -36,6 +36,21 @@ app.get('/api/users', (req, res) => {
     });
 });
 
+app.get('/api/retweet', (req, res) => {
+  const params = {count: 100};
+  console.log("id="+req.query.id)
+  client
+    .get('statuses/retweets/'+req.query.id,params)
+    .then(tres => {
+      //console.log(tres);
+      res.send(tres);
+    })
+    .catch(error => {
+      //console.log(error);
+      res.send(error);
+    });
+});
+
 let cache = [];
 let cacheAge = 0;
 
