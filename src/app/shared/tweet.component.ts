@@ -12,6 +12,7 @@ export class TweetComponent {
 
   @Input() tweet: Tweet;
   @Input() retweet: Tweet;
+  @Input() count: string;
   @Output() action = new EventEmitter<{property: string, tweet: Tweet}>();
 
   hasPhoto(tweet: Tweet) {

@@ -5,33 +5,24 @@ import { TweetsComponent } from '../app/tweets/tweets.component';
 import { UserTimelineComponent } from './user-timeline/user-timeline.component';
 import { UserComponent } from './user/user.component';
 import { RetweetComponent } from './retweet/retweet.component';
+import { RetweetGraphComponent } from './retweetgraph/retweetgraph.component';
 
 //const routes: Routes = [];
 
 const routes: Routes = [
-  {
-    path: '',
-    component: TweetsComponent
+  {path: '', component: TweetsComponent
   },
-  {
-    path: 'limit',
-    component: LimitComponent
+  {path: 'limit',component: LimitComponent
   },
-  {
-    path: 'tweets',
-    component: TweetsComponent
+  {path: 'tweets',component: TweetsComponent
   },
-  {
-    path: 'userhome/:screen_name',
-    component: UserTimelineComponent
+  {path: 'userhome/:screen_name',component: UserTimelineComponent
   },
-  {
-    path: 'users/:screen_name',
-    component: UserComponent
+  {path: 'users/:screen_name',component: UserComponent
   },
-  {
-    path: 'retweet/:id',
-    component: RetweetComponent
+  {path: 'retweet/:id',component: RetweetComponent
+  },
+  {path: 'retweetg/:id',component: RetweetGraphComponent
   },
 ];
 

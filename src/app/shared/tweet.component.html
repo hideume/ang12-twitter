@@ -1,4 +1,5 @@
-<div class="card-header">
+<div class="card-header" style="font-size: small;">
+  {{count|number:'3.0-0'}}
   <a routerLink="/users/{{tweet.user.screen_name}}">
   <img [src]="tweet.user.profile_image_url_https" class="avatar" /></a> {{tweet.user.name}} 
   (<a routerLink="/userhome/{{tweet.user.screen_name}}" >@{{tweet.user.screen_name}}</a>)

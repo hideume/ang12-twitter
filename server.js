@@ -38,7 +38,7 @@ app.get('/api/users', (req, res) => {
 
 app.get('/api/retweet', (req, res) => {
   const params = {count: 100};
-  console.log("id="+req.query.id)
+  //console.log("id="+req.query.id)
   client
     .get('statuses/retweets/'+req.query.id,params)
     .then(tres => {

@@ -1,11 +1,21 @@
-<p> retweet status </p>
-<table   class="table">
+<span> retweet status </span>
+<a routerLink="/retweetg/{{retweet_id}}">retweetGraph</a>
+<table   class="table" style="table-layout: fixed;">
+    <thead>
+        <th style="width:20px">No</th>
+        <th style="width:150px">create_at</th>
+        <th style="width:100px"> screen_name</th>
+        <th>名前</th>
+        <th style="width:100px">ツイート数</th>
+        <th  style="width:200px">場所</th>
+    </thead>
     <tbody>
     <tr *ngFor="let tweet of retweets; let i = index">
-    <td>{{i}}</td>
+    <td >{{i}}</td>
     <td>{{tweet.created_at| date:"MM/dd HH:mm:SS"}}</td>
     <td><a routerLink="/userhome/{{tweet.user.screen_name}}">{{tweet.user.screen_name}}</a></td>
     <td><a routerLink="/users/{{tweet.user.screen_name}}">{{tweet.user.name}}</a></td>
+    <td>{{tweet.user.statuses_count}}</td>
     <td>{{tweet.user.location}}</td>
     </tr>
     </tbody>

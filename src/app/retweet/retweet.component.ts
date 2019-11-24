@@ -10,12 +10,14 @@ import { ActivatedRoute } from '@angular/router';
 export class RetweetComponent implements OnInit {
 
   retweets;
+  retweet_id;
 
   constructor(private twitter: TwitterService,
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    var id = this.route.snapshot.paramMap.get('id'); 
+    var id = this.route.snapshot.paramMap.get('id');
+    this.retweet_id = id; 
     this.twitter.retweet(id)
     .subscribe(dt=>{
       this.retweets = dt.data;

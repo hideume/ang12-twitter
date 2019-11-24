@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { UserTimelineComponent } from './user-timeline/user-timeline.component';
 import { UserComponent } from './user/user.component';
 import { RetweetComponent } from './retweet/retweet.component';
+import { RetweetGraphComponent } from './retweetgraph/retweetgraph.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { RetweetComponent } from './retweet/retweet.component';
     LimitComponent,
     UserTimelineComponent,
     UserComponent,
-    RetweetComponent
+    RetweetComponent,
+    RetweetGraphComponent
   ],
   imports: [
     BrowserModule,
