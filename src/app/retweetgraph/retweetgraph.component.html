@@ -1,5 +1,17 @@
 <span>retweetgraph works!</span>
-<a routerLink="/retweet/{{retweet_id}}">retweet</a>
-<div>{{retweets.length}}</div>
-<div >取得開始時刻={{lasttime|date:'yyyy MM/dd HH:mm:SS'}}</div>
-<div >分速＝{{speed | number: '1.1-1' }}</div>
+<a routerLink="/retweet/{{retweet_id}}">retweet</a><br/>
+<span>リツイート数={{retweets[0].retweet_count}}</span>&nbsp;
+<span>ツイート日時={{retweets[0].retweeted_status.created_at|date:'yyyy MM/dd HH:mm:SS'}}</span>&nbsp;
+<span>ツイート経過時間={{retweets[0].retweeted_status.created_at|amTimeAgo}}</span>&nbsp;
+<span >全体分速＝{{totalspeed | number: '1.1-1' }}</span><br/>
+<span>___取得数={{retweets.length}}</span>&nbsp;
+<span >取得開始時刻={{lasttime|date:'yyyy MM/dd HH:mm:SS'}}</span>&nbsp;
+<span >取得経過時間={{lasttime|amTimeAgo}}</span>&nbsp;
+<span >現在分速＝{{speed | number: '1.1-1' }}</span>
+<table  border="1">
+    <tr *ngFor="let a of countList;let i = index">
+        <td width="20px">{{i}}</td>
+        <td width="40px">{{a}}</td>
+        <td width="200px">{{'+'.repeat(a)}}</td>
+    </tr>
+</table>
