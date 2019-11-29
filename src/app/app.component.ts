@@ -1,5 +1,7 @@
-import { Component , OnInit, ViewChild } from '@angular/core';
+import { Component , OnInit, ViewChild , ElementRef} from '@angular/core';
 import { TwitterService } from './twitter.service';
+import { Router } from '@angular/router'
+import { SearchComponent } from './search/search.component';
 
 @Component({
   selector: 'app-root',
@@ -8,18 +10,20 @@ import { TwitterService } from './twitter.service';
   providers: [TwitterService]
 })
 export class AppComponent implements OnInit {
-  @ViewChild('in1',{static:true}) public in1:HTMLInputElement;
+  @ViewChild('in1',{static:true,read: ElementRef}) public in1:ElementRef;
   // login selfuser
   user;
 
-  constructor(private twitter: TwitterService) {}
+  constructor(private twitter: TwitterService,private router:Router) {}
 
   ngOnInit() {
     this.twitter.user().subscribe(user => this.user = user.data);
   }
 
   clicked() {
-    console.log(this.in1.nativeElement.value)
+    //console.log("clicked"+this.in1.nativeElement.value);
+    //this.router.navigate(['/']);
+    this.router.navigate(['/search',this.in1.nativeElement.value]);
   }
 
 }

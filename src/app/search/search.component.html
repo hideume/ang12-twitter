@@ -1,0 +1,11 @@
+<div *ngIf="undefined === tweets">Loading...</div>
+<div *ngIf="undefined !== tweets" >
+  <div  style="display:flex;flex-flow: row wrap;width: 100%">   
+    <ng-container *ngFor="let tweet of tweets; let i = index" >
+      <div class="card" style="width:48%;margin: 5px;padding: 5px;">
+      <app-tweet *ngIf="!tweet.retweeted_status" [tweet]="tweet" (action)="action($event, i)"></app-tweet>
+      <app-tweet *ngIf="tweet.retweeted_status" [retweet]="tweet" [tweet]="tweet.retweeted_status" (action)="action($event, i)"></app-tweet>
+    </div>
+    </ng-container>
+  </div>
+</div>

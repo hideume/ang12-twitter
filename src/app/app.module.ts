@@ -15,6 +15,7 @@ import { UserTimelineComponent } from './user-timeline/user-timeline.component';
 import { UserComponent } from './user/user.component';
 import { RetweetComponent } from './retweet/retweet.component';
 import { RetweetGraphComponent } from './retweetgraph/retweetgraph.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { RetweetGraphComponent } from './retweetgraph/retweetgraph.component';
     UserTimelineComponent,
     UserComponent,
     RetweetComponent,
-    RetweetGraphComponent
+    RetweetGraphComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

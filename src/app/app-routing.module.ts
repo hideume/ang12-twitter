@@ -6,24 +6,19 @@ import { UserTimelineComponent } from './user-timeline/user-timeline.component';
 import { UserComponent } from './user/user.component';
 import { RetweetComponent } from './retweet/retweet.component';
 import { RetweetGraphComponent } from './retweetgraph/retweetgraph.component';
+import { SearchComponent } from './search/search.component';
 
 //const routes: Routes = [];
 
 const routes: Routes = [
-  {path: '', component: TweetsComponent
-  },
-  {path: 'limit',component: LimitComponent
-  },
-  {path: 'tweets',component: TweetsComponent
-  },
-  {path: 'userhome/:screen_name',component: UserTimelineComponent
-  },
-  {path: 'users/:screen_name',component: UserComponent
-  },
-  {path: 'retweet/:id',component: RetweetComponent
-  },
-  {path: 'retweetg/:id',component: RetweetGraphComponent
-  },
+  {path: '', component: TweetsComponent},
+  {path: 'limit',component: LimitComponent},
+  {path: 'tweets',component: TweetsComponent},
+  {path: 'userhome/:screen_name',component: UserTimelineComponent},
+  {path: 'users/:screen_name',component: UserComponent},
+  {path: 'retweet/:id',component: RetweetComponent},
+  {path: 'retweetg/:id',component: RetweetGraphComponent},
+  {path: 'search/:query',component: SearchComponent,pathMatch:'full'},
 ];
 
 @NgModule({

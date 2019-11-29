@@ -46,11 +46,15 @@ export class RetweetGraphComponent implements OnInit {
     var t0 = new Date(this.retweets[0].created_at);
     this.retweets.forEach(ts => {
       var tx = new Date(ts.created_at);
-      if(( t0.getTime() - tx.getTime() )/60/1000 < c){
-        this.countList[c-1]++ 
-      }else{
-        this.countList.push(1);
-        c = c + 1;
+      var okflg = true;
+      while(okflg){
+        if(( t0.getTime() - tx.getTime() )/60/1000 < c){
+          this.countList[c-1]++
+          okflg = false; 
+        }else{
+          this.countList.push(0);
+          c = c + 1;
+        }
       }
     });
   }

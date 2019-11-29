@@ -38,6 +38,10 @@ export class TwitterService {
     return this.http.get<TwitterResponse>(`${environment.api}/retweet?id=${id}`);
   }
 
+  search(query: string) {
+    return this.http.get<TwitterResponse>(`${environment.api}/search?query=${query}`);
+  }
+
   action(property: 'favorite'|'retweet', id: string, state: boolean) {
     return this.http.post<TwitterResponse>(`${environment.api}/${property}/${id}`, {state});
   }
