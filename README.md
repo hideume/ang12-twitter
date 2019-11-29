@@ -25,3 +25,4 @@ ng s
 * 11/20 add users
 * 11/23 icon change
 * 11/24 retweet
+* 11/29 search

@@ -51,6 +51,20 @@ app.get('/api/retweet', (req, res) => {
     });
 });
 
+app.get('/api/search', (req, res) => {
+  const params = {q: req.query.query};
+  console.log("q="+req.query.query)
+  client
+    .get('search/tweets',params)
+    .then(tres => {
+      //console.log(tres);
+      res.send(tres);
+    })
+    .catch(error => {
+      //console.log(error);
+      res.send(error);
+    });
+});
 let cache = [];
 let cacheAge = 0;
 
