@@ -1,13 +1,20 @@
 <div style="display: flex;align-items: flex-start;">
 <div>
-<img [src]="userres.profile_image_url" />
+<img [src]="userres.profile_image_url" style="margin: 2px;"/>
 <p>{{userres.name}}</p>
 </div>
-<img [src]="userres.profile_banner_url" style="width:300px"/>
-<div>
-<p>{{userres.location}}</p>
-<p>{{userres.description}}</p>
+<img [src]="userres.profile_banner_url" style="margin: 2px;width:300px"/>
+<div style="margin: 2px;border: solid 1px  black; padding: 5px;">
+<p >{{userres.location}}</p>
+<p >{{userres.description}}</p>
 </div>
 </div>
-<p>ツイート数:{{userres.statuses_count}}&nbsp;フォロアー:{{userres.followers_count}}&nbsp;フォロー:{{userres.friends_count}}&nbsp;linnked:{{userres.listed_count}}&nbsp;created:{{userres.created_at| date:'yyyy MM/dd HH:mm:SS'}}</p>
-    
+<div style="display:flex;justify-content: flex-start;">
+<span class="label label-info">ツイート数:{{userres.statuses_count}}</span>
+<span class="label label-info">フォロアー:{{userres.followers_count}}</span>
+<span class="label label-info">フォロー:{{userres.friends_count}}</span>
+<span class="label label-info">listed={{userres.listed_count}}</span>
+<span class="label label-info">create={{userres.created_at| date:'yyyy MM/dd HH:mm:SS'}}</span>
+<span *ngIf="userres.following" class="label label-info clickable">following={{userres.following}}</span>
+<span *ngIf="!userres.following" class="label label-danger clickable">following={{userres.following}}</span>
+</div>    

@@ -1,14 +1,14 @@
 <clr-main-container>
   <clr-header class="header-4">
-    <div class="branding">
+    <div class="branding" style="display:flex;align-content: flex-end;">
       <a class="nav-link">
-        <div class="title">Simple Switter</div>
+        <div class="title">Simple Twitter</div>
       </a>
-      <span style="width:50px">  </span>
       <a routerLink="tweets" class="title">tweets</a>
-      <span style="width:50px">  </span>
       <a routerLink="limit"class="title">limit</a>
-  </div>
+      <input #in1 class="title" type="text" size="30" style="color: black;">
+      <button (click)="clicked()" style="height:30px;align-self: flex-end;margin:8px">検索</button>
+    </div>
     <div class="header-actions" *ngIf="user">
       <a class="nav-link" routerLink="/users/{{user.screen_name}}">
         <span class="nav-text">
