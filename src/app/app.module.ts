@@ -16,6 +16,7 @@ import { UserComponent } from './user/user.component';
 import { RetweetComponent } from './retweet/retweet.component';
 import { RetweetGraphComponent } from './retweetgraph/retweetgraph.component';
 import { SearchComponent } from './search/search.component';
+import { TweetService } from './shared/tweet.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SearchComponent } from './search/search.component';
     BrowserAnimationsModule,
     ClarityModule,
     MomentModule,
-    AppRoutingModule
+    AppRoutingModule,
+    //TweetService
   ],
   exports: [
     UserTimelineComponent

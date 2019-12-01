@@ -15,6 +15,7 @@
   <p class="card-text" [innerHTML]="tweet | tweet"></p>
   <div class="card-img" *ngIf="hasPhoto(tweet)">
       <img [src]="tweet.entities?.media[0].media_url_https" (click)="media = true" />
+      <!-- <img [src]="tweet.entities?.media[0].expanded_url" (click)="media = true" /> -->
   </div>
 </div>
 <div class="card-footer" *ngIf="!retweet">

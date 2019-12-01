@@ -1,0 +1,51 @@
+import { TwitterService } from '../twitter.service';
+import { Injectable } from '@angular/core';
+import { Tweet } from './tweet';
+
+
+
+@Injectable({
+  providedIn: 'root',
+})
+
+export class TweetService {
+
+tweets: Tweet[]=[];
+ids=[] ;
+timer;
+since = '';
+
+constructor(private twitter: TwitterService) {
+    this.getnewTweets();
+    this.timer = setInterval(() => this.getnewTweets(), 61000);
+}
+
+getTweets():Tweet[]{
+  return this.tweets;
+}
+
+getnewTweets() {
+    //ここではsince以降のtweetを読み込む
+    console.log("new tweets = " + this.tweets.length + " since = " + new Date(this.since))
+    this.twitter.home(this.since).subscribe(tweets => {
+      tweets.data.reverse().forEach(tweet => {
+        if (this.ids.indexOf(tweet.id_str) < 0) {
+          // stack id_str,& tweet
+          this.ids.push(tweet.id_str);
+          this.tweets.unshift(tweet);
+        }
+        this.since = this.tweets[0].id_str;
+        this.cleanUp();
+        });
+    });
+}
+
+  //10000までため込む
+  cleanUp() {
+    if (this.tweets.length > 1000) {
+      this.tweets.splice(1000);
+      this.ids.splice(1000);
+    }
+  }
+    
+}

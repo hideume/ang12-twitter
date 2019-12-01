@@ -1,54 +1,26 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input  } from '@angular/core';
 import { Tweet } from '../shared/tweet';
 import { TwitterService } from '../twitter.service';
-import { AppComponent } from '../app.component';
+import { TweetService } from '../shared/tweet.service';
+//import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-tweets',
   templateUrl: './tweets.component.html',
-  styleUrls: ['./tweets.component.scss']
+  styleUrls: ['./tweets.component.scss'],
+  providers: [TweetService]
 })
-export class TweetsComponent implements OnInit, OnDestroy {
+export class TweetsComponent implements OnInit  {
   inflight = false;
-  tweets: Tweet[] = [];
-  ids = [];
-  timer;
-  since = '';
+  tweets: Tweet[]=[];
 
-  constructor(private twitter: TwitterService) {}
+  constructor(private tweetserv:TweetService,private twitter:TwitterService) {}
 
   ngOnInit() {
-    this.getTweets();
-    this.timer = setInterval(() => this.getTweets(), 61000);
+    this.tweets = this.tweetserv.getTweets();
   }
 
-  ngOnDestroy() {
-    if (this.timer) {
-      clearInterval(this.timer);
-    }
-  }
 
-  getTweets() {
-    this.twitter.home(this.since).subscribe(tweets => {
-      tweets.data.reverse().forEach(tweet => {
-        if (this.ids.indexOf(tweet.id_str) < 0) {
-          // stack id_str,& tweet
-          this.ids.push(tweet.id_str);
-          this.tweets.unshift(tweet);
-        }
-      });
-      this.since = this.tweets[0].id_str;
-      this.cleanUp();
-      //AppComponentthis.tweets.length;
-    });
-  }
-
-  cleanUp() {
-    if (this.tweets.length > 1000) {
-      this.tweets.splice(1000);
-      this.ids.splice(1000);
-    }
-  }
 
   action(action, index) {
     if (this.inflight) {
