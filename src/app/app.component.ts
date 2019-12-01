@@ -1,7 +1,6 @@
 import { Component , OnInit, ViewChild , ElementRef} from '@angular/core';
 import { TwitterService } from './twitter.service';
 import { Router } from '@angular/router'
-import { SearchComponent } from './search/search.component';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +23,12 @@ export class AppComponent implements OnInit {
     //console.log("clicked"+this.in1.nativeElement.value);
     //this.router.navigate(['/']);
     this.router.navigate(['/search',this.in1.nativeElement.value]);
+  }
+
+  tweet() {
+    var msg = this.in1.nativeElement.value;
+    this.twitter.tweet(msg)
+    .subscribe(d=>{console.log("tweet ok")},e=>{console.log("tweet error")});
   }
 
 }

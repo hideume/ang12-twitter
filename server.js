@@ -135,4 +135,18 @@ app.post('/api/retweet/:id', (req, res) => {
     .catch(error => res.send(error));
 });
 
+app.get('/api/tweet', (req, res) => {
+  const params = { status: req.query.msg };
+  console.log('tweet:'+req.params.msg);
+  client
+    .post(`statuses/update`,params)
+    .then(tweet => {
+      console.log("tweet ok"+req.params.status);
+      res.send(tweet)})
+    .catch(error => {
+      console.log("tweet erre"+error);
+      res.send(error)});
+});
+
+
 app.listen(3000, () => console.log('Server running'));

@@ -8,6 +8,7 @@
       <a routerLink="limit"class="title">limit</a>
       <input #in1 class="title" type="text" size="30" style="color: black;">
       <button (click)="clicked()" style="height:30px;align-self: flex-end;margin:8px">検索</button>
+      <button (click)="tweet()" style="height:30px;align-self: flex-end;margin:8px">tweet</button>
     </div>
     <div class="header-actions" *ngIf="user">
       <a class="nav-link" routerLink="/users/{{user.screen_name}}">

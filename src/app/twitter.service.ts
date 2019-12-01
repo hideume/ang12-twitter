@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { throwError } from 'rxjs';
+import { retry,catchError } from 'rxjs/operators';
 import { environment } from '../environments/environment';
 
 
@@ -8,8 +10,14 @@ export interface TwitterResponse {
   resp: any;
 }
 
+export interface stmsg {
+  status: any;
+}
+
+
 @Injectable()
 export class TwitterService {
+  
 
   constructor(private http: HttpClient) { }
 
@@ -42,7 +50,28 @@ export class TwitterService {
     return this.http.get<TwitterResponse>(`${environment.api}/search?query=${query}`);
   }
 
+  tweet(msg: string) {
+    var body:stmsg = {status: msg };
+    var state = true;
+
+    return  this.http.get<TwitterResponse>(`${environment.api}/tweet?msg=${msg}`);
+  }
+
   action(property: 'favorite'|'retweet', id: string, state: boolean) {
     return this.http.post<TwitterResponse>(`${environment.api}/${property}/${id}`, {state});
   }
-}
+
+  handleError(error) {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+      // client-side error
+      errorMessage = `Error: ${error.error.message}`;
+    } else {
+      // server-side error
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    window.alert(errorMessage);
+    return throwError(errorMessage);
+  }
+ }
+
