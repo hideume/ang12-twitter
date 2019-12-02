@@ -18,12 +18,12 @@
       <!-- <img [src]="tweet.entities?.media[0].expanded_url" (click)="media = true" /> -->
   </div>
 </div>
-<div class="card-footer" *ngIf="!retweet">
+<div class="card-footer" *ngIf="!retweet" >
     {{tweet.created_at | amTimeAgo}} 
     <clr-icon shape="minus"></clr-icon> 
     {{tweet.created_at | date:'yyyy MM/dd HH:mm:SS'}}
 </div>
-<div class="card-footer" *ngIf="retweet">
+<div class="card-footer" *ngIf="retweet" >
     {{retweet.created_at | amTimeAgo}} 
     <clr-icon shape="minus"></clr-icon> 
     {{retweet.created_at | date:'yyyy MM/dd HH:mm:SS'}}

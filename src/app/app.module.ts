@@ -38,7 +38,6 @@ import { TweetService } from './shared/tweet.service';
     ClarityModule,
     MomentModule,
     AppRoutingModule,
-    //TweetService
   ],
   exports: [
     UserTimelineComponent

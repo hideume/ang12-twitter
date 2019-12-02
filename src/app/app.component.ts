@@ -1,12 +1,13 @@
 import { Component , OnInit, ViewChild , ElementRef} from '@angular/core';
 import { TwitterService } from './twitter.service';
+import { TweetService } from './shared/tweet.service';
 import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers: [TwitterService]
+  providers: [TwitterService,TweetService]
 })
 export class AppComponent implements OnInit {
   @ViewChild('in1',{static:true,read: ElementRef}) public in1:ElementRef;
@@ -28,7 +29,9 @@ export class AppComponent implements OnInit {
   tweet() {
     var msg = this.in1.nativeElement.value;
     this.twitter.tweet(msg)
-    .subscribe(d=>{console.log("tweet ok")},e=>{console.log("tweet error")});
+    .subscribe(d=>{console.log("tweet ok");
+    this.in1.nativeElement.value = "";
+    },e=>{console.log("tweet error")});
   }
 
 }

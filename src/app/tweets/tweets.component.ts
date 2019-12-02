@@ -8,7 +8,7 @@ import { TweetService } from '../shared/tweet.service';
   selector: 'app-tweets',
   templateUrl: './tweets.component.html',
   styleUrls: ['./tweets.component.scss'],
-  providers: [TweetService]
+  //providers: [TweetService]
 })
 export class TweetsComponent implements OnInit  {
   inflight = false;
