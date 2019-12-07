@@ -17,4 +17,18 @@
 <span class="label label-info">create={{userres.created_at| date:'yyyy MM/dd HH:mm:SS'}}</span>
 <span *ngIf="userres.following" class="label label-info clickable">following={{userres.following}}</span>
 <span *ngIf="!userres.following" class="label label-danger clickable">following={{userres.following}}</span>
-</div>    
+</div>
+<table class="table">
+    <thead>
+        <th>name</th>
+        <th>members</th>
+        <th>slug</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let l of lists">
+            <td>{{l.name}}</td>
+            <td>{{l.member_count}}</td>
+            <td>{{l.slug}}</td>
+        </tr>
+    </tbody>
+</table>

@@ -36,6 +36,20 @@ app.get('/api/users', (req, res) => {
     });
 });
 
+app.get('/api/list', (req, res) => {
+  const params = { screen_name: req.query.screen_name };
+  client
+    .get('lists/list',params)
+    .then(user => {
+      res.send(user);
+    })
+    .catch(error => {
+      res.send(error);
+    });
+});
+
+
+
 app.get('/api/retweet', (req, res) => {
   const params = {count: 100};
   //console.log("id="+req.query.id)
