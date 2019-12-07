@@ -23,7 +23,16 @@ export class TweetPipe implements PipeTransform {
     // Replace links with clickable links
     if (tweet.entities.urls) {
       tweet.entities.urls.forEach(url => {
-        text = text.replace(url.url, `<a href="${url.url}" target="_blank">${url.display_url}</a>`);
+        
+        var re = new RegExp("twitter.com/(.+)/status/(.+)?");
+        var ans = re.exec(url.expanded_url);
+        if(ans){
+          console.log(ans[1]+" "+ans[2]);
+          text = text.replace(url.url, `<amp-twitter data-tweetid="`+ans[2]+`" width="500" height="50" layout="fixed" dnt="true" cards="hidden"></amp-twitter>`);
+        }else{
+        
+          text = text.replace(url.url, `<a href="${url.url}" target="_blank">${url.display_url}</a>`);
+        }
       });
     }
     

@@ -15,8 +15,8 @@
 <span class="label label-info">フォロー:{{userres.friends_count}}</span>
 <span class="label label-info">listed={{userres.listed_count}}</span>
 <span class="label label-info">create={{userres.created_at| date:'yyyy MM/dd HH:mm:SS'}}</span>
-<span *ngIf="userres.following" class="label label-info clickable">following={{userres.following}}</span>
-<span *ngIf="!userres.following" class="label label-danger clickable">following={{userres.following}}</span>
+<span *ngIf="!userres?.following" class="label label-danger clickable">following={{userres.following}}</span>
+<span *ngIf="userres?.following" class="label label-info clickable">following={{userres.following}}</span>
 </div>
 <table class="table">
     <thead>
