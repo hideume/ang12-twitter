@@ -7,6 +7,7 @@ import { UserComponent } from './user/user.component';
 import { RetweetComponent } from './retweet/retweet.component';
 import { RetweetGraphComponent } from './retweetgraph/retweetgraph.component';
 import { SearchComponent } from './search/search.component';
+import { TestComponent } from './test/test.component';
 
 //const routes: Routes = [];
 
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'retweet/:id',component: RetweetComponent},
   {path: 'retweetg/:id',component: RetweetGraphComponent},
   {path: 'search/:query',component: SearchComponent,pathMatch:'full'},
+  {path: 'test',component: TestComponent},
 ];
 
 @NgModule({

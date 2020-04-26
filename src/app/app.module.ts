@@ -17,6 +17,8 @@ import { RetweetComponent } from './retweet/retweet.component';
 import { RetweetGraphComponent } from './retweetgraph/retweetgraph.component';
 import { SearchComponent } from './search/search.component';
 import { TweetService } from './shared/tweet.service';
+import { TestComponent } from './test/test.component';
+import { TwgetComponent } from './shared/twget/twget.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { TweetService } from './shared/tweet.service';
     UserComponent,
     RetweetComponent,
     RetweetGraphComponent,
-    SearchComponent
+    SearchComponent,
+    TestComponent,
+    TwgetComponent
   ],
   imports: [
     BrowserModule,

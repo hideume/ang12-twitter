@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TweetDirective } from './tweet.directive';
+//import { TweetDirective } from './tweet.directive';
+import { TwgetComponent } from './twget/twget.component';
 
 
 
 @NgModule({
-  declarations: [TweetDirective],
+  declarations: [ TwgetComponent],
   imports: [
     CommonModule
   ]

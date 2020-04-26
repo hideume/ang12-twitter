@@ -41,11 +41,11 @@ getnewTweets() {
     });
 }
 
-  //10000までため込む
+  //500までため込む
   cleanUp() {
-    if (this.tweets.length > 1000) {
-      this.tweets.splice(1000);
-      this.ids.splice(1000);
+    if (this.tweets.length > 500) {
+      this.tweets.splice(500);
+      this.ids.splice(500);
     }
   }
     

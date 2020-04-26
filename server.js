@@ -117,6 +117,22 @@ app.get('/api/userhome', (req, res) => {
       });
 });
 
+app.get('/api/status_show', (req, res) => {
+  const params = { id: req.query.id };
+  //const params = { screen_name: "hawaii_hahaha" };
+  client
+    .get(`statuses/show`, params)
+    .then(xxx => {
+      //console.log("show ok")
+      res.send(xxx);
+      //console.log("xxx="+xxx);
+    })
+    .catch(error => {
+      res.send(error);
+      console.log("erre="+error);
+    });
+});
+
 
 app.get('/api/limit',(req,res) => {
     //console.log("call limit");

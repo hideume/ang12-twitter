@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { throwError } from 'rxjs';
+import { throwError,Observable,Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { retry,catchError } from 'rxjs/operators';
 import { environment } from '../environments/environment';
 
@@ -40,6 +41,25 @@ export class TwitterService {
   userhome(screen_name: string) {
     //console.log(screen_name);
     return this.http.get<TwitterResponse>(`${environment.api}/userhome?screen_name=${screen_name}`);
+  }
+
+  status_show(id: string) {
+    //console.log("status_show ="+id);
+    //var rres:Subject<TwitterResponse> = new Subject();;
+    //return 
+    //let aa;
+    return this.http.get<TwitterResponse>(`${environment.api}/status_show?id=${id}`)
+    .pipe(
+      map(res=>{
+        return res;
+      })
+    )
+    //.subscribe( res =>{
+    //  aa = res;
+    //  rres.next(aa);
+    //});
+    //return rres;
+    
   }
 
   limit() {
