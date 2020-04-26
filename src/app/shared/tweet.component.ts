@@ -19,12 +19,15 @@ export class TweetComponent implements OnInit {
   @Input() retweet: Tweet;
   @Input() count: string;
   @Output() action = new EventEmitter<{property: string, tweet: Tweet}>();
-  //@ViewChild('dynamic',{read: ViewContainerRef, static: false} ) viewContainerRef: ViewContainerRef;
 
+  im1disp = "block";
+  im2disp = "none";
   constructor(
     //public viewContainerRef: ViewContainerRef,
     //private resolver: ComponentFactoryResolver
-  ){};
+  ){
+    //this.mediaurl = "tweet.entities?.media[0].media_url_https";
+  };
 
 
   ngOnInit() {
@@ -39,6 +42,17 @@ export class TweetComponent implements OnInit {
     if (tweet.entities.media
         && tweet.entities.media.length 
         && tweet.entities.media[0].type === 'photo') {
+          tweet.mediaurl = tweet.entities.media[0].media_url_https;
+      return true;
+    }
+    return false;
+  }
+
+  //2
+  hasPhoto2(tweet: Tweet) {
+    if (tweet.entities.media
+        && tweet.extended_entities.media.length > 1 ) {
+          tweet.mediaurl = tweet.entities.media[0].media_url_https;
       return true;
     }
     return false;
@@ -50,5 +64,15 @@ export class TweetComponent implements OnInit {
 
   TWstatus(msg: any){
     console.log(msg);
+  }
+
+  imagemv(norp,tweet: Tweet){
+    if(norp==1){
+      this.im1disp = "none";
+      this.im2disp = "block";
+    }else{
+      this.im1disp = "block";
+      this.im2disp = "none";
+    }
   }
 }

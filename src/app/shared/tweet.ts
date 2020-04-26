@@ -32,6 +32,34 @@ export class Tweet {
       id: number;
     }[];
   };
+  extended_entities: {
+    hashtags: any[];
+    symbols: any[];
+    media: {
+      id: number;
+      media_url_https: string;
+      url: string;
+      type: 'photo' | 'video';
+      expanded_url: string;
+      sizes: {
+        thumb: {
+          w: number;
+          h: number;
+          resize: 'fit' | 'crop';
+        };
+      };
+    }[];
+    urls: {
+      display_url: string;
+      expanded_url: string;
+      url: string;
+    }[];
+    user_mentions: {
+      screen_name: string;
+      name: string;
+      id: number;
+    }[];
+  };
   source: string;
   in_reply_to_status_id: number;
   in_reply_to_user_id: number;
@@ -62,4 +90,5 @@ export class Tweet {
   retweeted: boolean;
   lang: string;
   retweet_status: Tweet;
+  mediaurl: string;
 }
