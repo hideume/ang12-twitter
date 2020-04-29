@@ -42,7 +42,6 @@ export class TweetComponent implements OnInit {
     if (tweet.entities.media
         && tweet.entities.media.length 
         && tweet.entities.media[0].type === 'photo') {
-          tweet.mediaurl = tweet.entities.media[0].media_url_https;
       return true;
     }
     return false;
@@ -52,7 +51,6 @@ export class TweetComponent implements OnInit {
   hasPhoto2(tweet: Tweet) {
     if (tweet.entities.media
         && tweet.extended_entities.media.length > 1 ) {
-          tweet.mediaurl = tweet.entities.media[0].media_url_https;
       return true;
     }
     return false;

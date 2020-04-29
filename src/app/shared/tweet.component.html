@@ -32,9 +32,9 @@
   <h3 class="modal-title"><img [src]="tweet.user.profile_image_url_https" class="avatar" /> {{tweet.user.name}} (@{{tweet.user.screen_name}})
     <span *ngIf="retweet" class="retweeted"><clr-icon shape="sync"></clr-icon> Retweeted by {{retweet.user.name}}</span></h3>
     <div class="modal-body" *ngIf="hasPhoto(tweet)">
-      <img  [src]="tweet.entities?.media[0].media_url_https" height="500" [style.display]="im1disp"/>
-      <img  [src]="tweet.extended_entities?.media[1].media_url_https" height="500" *ngIf="hasPhoto2(tweet)" [style.display]="im2disp"/>
-      <div style="align-items: center;" *ngIf="hasPhoto2(tweet)">
+      <img  [src]="tweet.entities?.media[0].media_url_https" height="500" [style.display]="im1disp" style="margin:auto"/>
+      <img  [src]="tweet.extended_entities?.media[1].media_url_https" height="500" *ngIf="hasPhoto2(tweet)" [style.display]="im2disp"  />
+      <div style="text-align: center;" *ngIf="hasPhoto2(tweet)" >
         <button (click)="imagemv(1,tweet);">next</button>
         <button (click)="imagemv(0,tweet)">back</button>
       </div>
