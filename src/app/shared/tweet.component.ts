@@ -65,28 +65,35 @@ export class TweetComponent implements OnInit {
   }
 
   imagemv(norp,tweet: Tweet){
-    //nextの場合、1をblockとする。
+    let setno = this.getnum();
+    let i = 0;
     if(norp==1){
-      console.log(this.imgs.length);
-      let i = 0;
-      this.imgs.forEach(im =>{
-        if(i==1){
-          im.nativeElement.style.display = "block";
-        }else{
-          im.nativeElement.style.display = "none";
-        }
-        i=i+1;
-      });
+     //nextの場合、次をblockとする。
+      setno = Math.min(setno + 1,this.imgs.length - 1);
     }else{
-      let i = 0;
-      this.imgs.forEach(im =>{
-        if(i==0){
-          im.nativeElement.style.display = "block";
-        }else{
-          im.nativeElement.style.display = "none";
-        }
-        i=i+1;
-      });
-    }
+      //backの場合、前をblockとする。
+      setno = Math.max(setno-1,0)
+      }
+    this.imgs.forEach(im =>{
+      if(i==setno){
+        im.nativeElement.style.display = "block";
+      }else{
+        im.nativeElement.style.display = "none";
+      }
+      i=i+1;
+    });
   }
+
+  // blockのある番号を返す
+  getnum():number {
+    let i = 0;
+    let ri = 0;
+    this.imgs.forEach(im =>{
+      if(im.nativeElement.style.display=='block'){
+        ri = i;
+      };
+      i=i+1;
+    });
+    return ri;
+  };
 }
