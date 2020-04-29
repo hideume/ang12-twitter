@@ -1,5 +1,7 @@
-import { Component , Input ,Output,OnInit,OnChanges,ViewChild,
-          EventEmitter } from '@angular/core';
+import { Component , Input ,Output,OnInit,ViewChildren,
+          EventEmitter,
+          QueryList, 
+          ElementRef} from '@angular/core';
 import { Tweet } from './tweet';
 //import { TwgetComponent } from './twget/twget.component';
 //import { ComponentFactory, ComponentFactoryResolver,ViewContainerRef } from '@angular/core';
@@ -19,9 +21,8 @@ export class TweetComponent implements OnInit {
   @Input() retweet: Tweet;
   @Input() count: string;
   @Output() action = new EventEmitter<{property: string, tweet: Tweet}>();
+  @ViewChildren('imgtags',{read:ElementRef}) imgs:QueryList<ElementRef>;
 
-  im1disp = "block";
-  im2disp = "none";
   constructor(
     //public viewContainerRef: ViewContainerRef,
     //private resolver: ComponentFactoryResolver
@@ -35,8 +36,7 @@ export class TweetComponent implements OnInit {
     //this.viewContainerRef.createComponent(this.factory);
   }
 
-  ngOnChanges(){
-  }
+
 
   hasPhoto(tweet: Tweet) {
     if (tweet.entities.media
@@ -65,12 +65,28 @@ export class TweetComponent implements OnInit {
   }
 
   imagemv(norp,tweet: Tweet){
+    //nextの場合、1をblockとする。
     if(norp==1){
-      this.im1disp = "none";
-      this.im2disp = "block";
+      console.log(this.imgs.length);
+      let i = 0;
+      this.imgs.forEach(im =>{
+        if(i==1){
+          im.nativeElement.style.display = "block";
+        }else{
+          im.nativeElement.style.display = "none";
+        }
+        i=i+1;
+      });
     }else{
-      this.im1disp = "block";
-      this.im2disp = "none";
+      let i = 0;
+      this.imgs.forEach(im =>{
+        if(i==0){
+          im.nativeElement.style.display = "block";
+        }else{
+          im.nativeElement.style.display = "none";
+        }
+        i=i+1;
+      });
     }
   }
 }
