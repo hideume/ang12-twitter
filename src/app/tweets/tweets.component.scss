@@ -1,14 +1,14 @@
-.tweets {
+.tweets {                   //全体のdiv
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: row;  //ここは二列のためrow
     flex-wrap: wrap;
   }
 
-.card {
+.card {                   //ここはcard単位
   margin: 5px;    
   padding: 5px;
     width: 48%;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; //ここはフッターを制御したい
 }

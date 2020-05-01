@@ -1,5 +1,5 @@
 .card-header {
-  display: inline;
+  display: inline; //blockにすると変になる
   padding: 0;
 
   .retweeted {
@@ -14,19 +14,15 @@
     text-align: right;
   }
   .avater {
-    height: 15px;
+    height: 100px;
   }
 }
 .card-block {
   display: flex;
-  flex:1;
-  //display: block;
-  //grid-template-columns: 1fr 300px;
-  //grid-template-rows: 1fr;
-  //grid-template-areas: 'text photo';
+  flex-grow: 1; //ここを増加させるつもりなんだが・・
 }
 .card-img {
-  display: flexbox;
+  display: flexbox; //これは無効なのか？
   //grid-area: photo;
   text-align: right;
   //flex: 1;
@@ -50,7 +46,13 @@
 .card-footer {
   //margin-top: -30px;;
   //height: 30px;
-  //margin-top: auto;
+  margin-top: auto; //これが効かないんだよなあ
+  flex-shrink: 1;
+}
+
+.eximg {
+  margin-left: auto;
+  margin-right: auto;
 }
 ::ng-deep {
     .modal-body {
