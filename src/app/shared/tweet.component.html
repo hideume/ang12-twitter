@@ -5,8 +5,14 @@
   (<a routerLink="/userhome/{{tweet.user.screen_name}}" >@{{tweet.user.screen_name}}</a>)
   <span *ngIf="retweet" class="retweeted"><clr-icon shape="sync"></clr-icon> Retweeted by {{retweet.user.name}} (@{{retweet.user.screen_name}})</span>
   <div class="card-header-actions" style="font-size: small;">
+    <a role="tooltip" aria-haspopup="true" class="tooltip tooltip-xs">
       <img src="../../assets/img/hart.png" style="width:14px;" (click)="toggleAction('favorite')"/> {{tweet.favorite_count}}
-    <img src="../../assets/img/re3.png" (click)="toggleAction('retweet')"/>
+      <span class="tooltip-content">favo</span>
+    </a>
+    <a role="tooltip" aria-haspopup="true" class="tooltip tooltip-xs">
+        <img src="../../assets/img/re3.png" (click)="toggleAction('retweet')"/>
+       <span class="tooltip-content">retweet</span>
+       </a>
     <a *ngIf="retweet" routerLink="/retweetg/{{tweet.id_str}}">{{tweet.retweet_count}}</a>
     <span *ngIf="!retweet" >{{tweet.retweet_count}}</span>
   </div>

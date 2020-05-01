@@ -23,6 +23,7 @@ export class TweetComponent implements OnInit {
   @Output() action = new EventEmitter<{property: string, tweet: Tweet}>();
   @ViewChildren('imgtags',{read:ElementRef}) imgs:QueryList<ElementRef>;
 
+
   constructor(
     //public viewContainerRef: ViewContainerRef,
     //private resolver: ComponentFactoryResolver
@@ -73,7 +74,7 @@ export class TweetComponent implements OnInit {
     }else{
       //backの場合、前をblockとする。
       setno = Math.max(setno-1,0)
-      }
+    }
     this.imgs.forEach(im =>{
       if(i==setno){
         im.nativeElement.style.display = "block";
