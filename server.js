@@ -68,16 +68,31 @@ app.get('/api/retweet', (req, res) => {
 app.get('/api/search', (req, res) => {
   const params = {q: req.query.query};
   console.log("q="+req.query.query)
-  client
-    .get('search/tweets',params)
-    .then(tres => {
-      //console.log(tres);
-      res.send(tres);
-    })
-    .catch(error => {
-      //console.log(error);
-      res.send(error);
-    });
+  if(req.query.query.substr(0,3)!='23'){
+    client
+      .get('search/tweets',params)
+      .then(tres => {
+        //console.log(tres);
+        res.send(tres);
+      })
+      .catch(error => {
+        //console.log(error);
+        res.send(error);
+      });
+  }else{
+    wd = req.query.query.substr(3);
+    //console.log("hashtag/search wd="+wd);
+    client
+      .get('hashtag/'+wd+'?src=hashtag_click')
+      .then(tres => {
+        //console.log(tres);
+        res.send(tres);
+      })
+      .catch(error => {
+        //console.log(error);
+        res.send(error);
+      });
+  }
 });
 let cache = [];
 let cacheAge = 0;
