@@ -28,7 +28,7 @@ export class LimitComponent implements OnInit {
 
   settable(nm:string,arg){
     var f = [];
-    f.unshift(new Date(arg.reset));
+    f.unshift(new Date(arg.reset*1000));
     f.unshift(arg.remaining);
     f.unshift(arg.limit);
     f.unshift(nm);
