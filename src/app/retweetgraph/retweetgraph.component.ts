@@ -15,6 +15,7 @@ export class RetweetGraphComponent implements OnInit {
   speed;
   retweet_id;
   countList = [0];
+  interval = 1
 
   constructor(private twitter:TwitterService,private route:ActivatedRoute) { }
 
@@ -33,12 +34,24 @@ export class RetweetGraphComponent implements OnInit {
   }
 
   private calcSpeed() {
-    var t0 = new Date(this.retweets[0].created_at);
-    var t1 = new Date(this.retweets[this.retweets.length-1].created_at);
-    var t2 = new Date(this.retweets[0].retweeted_status.created_at);
-    this.lasttime = t1;
-    this.speed = (this.retweets.length-1)/( t0.getTime() - t1.getTime() )*60*1000;
-    this.totalspeed = this.retweets[0].retweet_count/( t0.getTime() - t2.getTime() )*60*1000;
+      var t0 = new Date(this.retweets[0].created_at);
+      var t1 = new Date(this.retweets[this.retweets.length-1].created_at);
+      var t2 = new Date(this.retweets[0].retweeted_status.created_at);
+      this.lasttime = t1;
+      this.speed = (this.retweets.length-1)/( t0.getTime() - t1.getTime() )*60*1000;
+      this.totalspeed = this.retweets[0].retweet_count/( t0.getTime() - t2.getTime() )*60*1000;
+      let diftime = (t0.getTime() - t1.getTime())/1000;
+      if(diftime < 60*60 ) {
+        this.interval = 1;
+      }else if( diftime < 2*60*60 ) {
+        this.interval = 2;
+      }else if( diftime < 5*60*60 ) {
+        this.interval = 5;
+      }else if( diftime < 10*60*60 ) {
+        this.interval = 10;
+      }else {
+        this.interval = 60;
+      };
   }
 
   private makeList() {
@@ -47,8 +60,10 @@ export class RetweetGraphComponent implements OnInit {
     this.retweets.forEach(ts => {
       var tx = new Date(ts.created_at);
       var okflg = true;
+      //ここでループするわけでないのだが、０のc＝行を追加するだけの
+      //パターンがあるので以下のループでいいということか
       while(okflg){
-        if(( t0.getTime() - tx.getTime() )/60/1000 < c){
+        if(( t0.getTime() - tx.getTime() )/60/1000 < c* this.interval){
           this.countList[c-1]++
           okflg = false; 
         }else{
