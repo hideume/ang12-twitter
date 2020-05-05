@@ -43,6 +43,11 @@ export class TwitterService {
     return this.http.get<TwitterResponse>(`${environment.api}/userhome?screen_name=${screen_name}`);
   }
 
+  trend() {
+    //console.log(screen_name);
+    return this.http.get<TwitterResponse>(`${environment.api}/trends`);
+  }
+
   status_show(id: string) {
     //console.log("status_show ="+id);
     //var rres:Subject<TwitterResponse> = new Subject();;

@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ClarityModule } from '@clr/angular';
-import { MomentModule } from 'angular2-moment';
-//import { MomentModule } from 'ngx-moment';
+//import { MomentModule } from 'angular2-moment';
+import { MomentModule } from 'ngx-moment';
 
 import { AppComponent } from './app.component';
 import { TweetComponent } from './shared/tweet.component';
@@ -18,8 +18,10 @@ import { RetweetComponent } from './retweet/retweet.component';
 import { RetweetGraphComponent } from './retweetgraph/retweetgraph.component';
 import { SearchComponent } from './search/search.component';
 import { TweetService } from './shared/tweet.service';
+import { TwitterService } from './twitter.service';
 import { TestComponent } from './test/test.component';
 import { TwgetComponent } from './shared/twget/twget.component';
+import { TrendComponent } from './trend/trend.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { TwgetComponent } from './shared/twget/twget.component';
     RetweetGraphComponent,
     SearchComponent,
     TestComponent,
-    TwgetComponent
+    TwgetComponent,
+    TrendComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,8 @@ import { TwgetComponent } from './shared/twget/twget.component';
   exports: [
     UserTimelineComponent
   ],
-  providers: [],
+  providers: [TweetService,
+    TwitterService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

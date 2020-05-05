@@ -22,7 +22,8 @@ export class TweetPipe implements PipeTransform {
     }
 
     // Replace # hashtag with links
-    text = text.replace(new RegExp('#(\\S+[\\s|$])', 'gi'),`<a href="http://localhost:4200/search/23\$1">#\$1</a>`);
+    //text = text.replace(new RegExp('#(\\S+)([\\s|$])', 'gi'),`<a  [routerLink]=['/search',23\$1] routerLinkActive="active-link">#\$1\$2</a>`);
+    text = text.replace(new RegExp('#(\\S+)([\\s|$])', 'gi'),`<a  href="search/\$1" >#\$1\$2</a>`);
 
 
     // Replace links with clickable links

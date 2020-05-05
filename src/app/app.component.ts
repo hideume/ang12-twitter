@@ -6,15 +6,16 @@ import { Router } from '@angular/router'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  providers: [TwitterService,TweetService]
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
   @ViewChild('in1',{static:true,read: ElementRef}) public in1:ElementRef;
   // login selfuser
   user;
 
-  constructor(private twitter: TwitterService,private router:Router) {}
+  constructor(private twitter: TwitterService,private router:Router,
+    private twsv:TwitterService //これを指定しておかないとリロードする。
+    ) {}
 
   ngOnInit() {
     this.twitter.user().subscribe(user => this.user = user.data);

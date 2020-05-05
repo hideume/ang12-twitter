@@ -41,16 +41,20 @@ export class RetweetGraphComponent implements OnInit {
       this.speed = (this.retweets.length-1)/( t0.getTime() - t1.getTime() )*60*1000;
       this.totalspeed = this.retweets[0].retweet_count/( t0.getTime() - t2.getTime() )*60*1000;
       let diftime = (t0.getTime() - t1.getTime())/1000;
-      if(diftime < 60*60 ) {
+      if(diftime < 20*60 ) { //30時間以内の場合最大15
         this.interval = 1;
-      }else if( diftime < 2*60*60 ) {
+      }if(diftime < 30*60 ) { //30時間以内の場合最大15
         this.interval = 2;
-      }else if( diftime < 5*60*60 ) {
+      }else if( diftime < 2*60*60 ) { //2時間以内の場合、最大24
         this.interval = 5;
-      }else if( diftime < 10*60*60 ) {
+      }else if( diftime < 5*60*60 ) { //5時間以内の場合、最大30
         this.interval = 10;
-      }else {
+      }else if( diftime < 10*60*60 ) {　//10時間以内の場合、最大20
+        this.interval = 30;
+      }else if( diftime < 24*60*60 ) {　//24時間以内の場合、最大24
         this.interval = 60;
+      }else {
+        this.interval = 120;
       };
   }
 

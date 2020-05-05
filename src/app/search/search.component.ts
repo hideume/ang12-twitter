@@ -13,7 +13,7 @@ export class SearchComponent implements OnInit {
   constructor(private twitter:TwitterService,private route:ActivatedRoute) { }
 
   ngOnInit() {
-    console.log("oninit---");
+    //console.log("oninit---");
     this.tweets = [];
     var q ;
     this.route.paramMap.subscribe(paramsMap => {

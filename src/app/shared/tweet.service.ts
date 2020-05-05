@@ -17,6 +17,7 @@ since = '';
 
 constructor(private twitter: TwitterService) {
     console.log("-----TweetService constract");
+    //このサービスは画面に関係なくtweetをスタックし続ける
     this.getnewTweets();
     this.timer = setInterval(() => this.getnewTweets(), 61000);
 }

@@ -1,0 +1,16 @@
+<div>trend</div>
+<div *ngFor="">{{pp.name}}</div>
+<table class="table">
+    <thead>
+        <th>No</th>
+        <th>Name</th>
+        <th>volume</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let pp of trends;let i = index">
+        <td>{{i}}</td>
+        <td><a [href]="search(pp.name)">{{pp.name}}</a></td>
+        <td>{{pp.tweet_volume}}</td>
+    </tr>
+</tbody>
+</table>

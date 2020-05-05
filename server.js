@@ -80,10 +80,10 @@ app.get('/api/search', (req, res) => {
         res.send(error);
       });
   }else{
-    wd = req.query.query.substr(3);
-    //console.log("hashtag/search wd="+wd);
+    wd = req.query.query.substr(2);
+    console.log("hashtag/search wd="+wd);
     client
-      .get('hashtag/'+wd+'?src=hashtag_click')
+      .get('hashtag/search/'+wd+'?src=hashtag_click')
       .then(tres => {
         //console.log(tres);
         res.send(tres);
@@ -163,6 +163,23 @@ app.get('/api/limit',(req,res) => {
     .catch(error => res.send(error));  
 });
 
+app.get('/api/trends',(req,res) => {
+  //console.log("trends call");
+  //const params = {id: '23424856'}; //japan
+  const params = {id: '1118370'}; //tokyo
+  client
+  .get('trends/place',params)
+  .then(data => {
+    res.send(data);
+    //console.log("trends out="+data);
+  })
+  .catch(
+    error => {
+      res.send(error);
+      console.log("trend error="+error);
+    }
+  );  
+});
 
 app.post('/api/favorite/:id', (req, res) => {
   const path = req.body.state ? 'create' : 'destroy';
