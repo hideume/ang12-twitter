@@ -14,8 +14,9 @@ export class AppComponent implements OnInit {
   user;
 
   constructor(private twitter: TwitterService,private router:Router,
-    private twsv:TwitterService //これを指定しておかないとリロードする。
-    ) {}
+    private twsv:TweetService //これを指定しておかないとリロードする。
+    ) {
+    }
 
   ngOnInit() {
     this.twitter.user().subscribe(user => this.user = user.data);

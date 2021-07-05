@@ -3,6 +3,7 @@ import { Component , Input ,Output,OnInit,ViewChildren,
           QueryList, 
           ElementRef} from '@angular/core';
 import { Tweet } from './tweet';
+import { Router } from '@angular/router';
 //import { TwgetComponent } from './twget/twget.component';
 //import { ComponentFactory, ComponentFactoryResolver,ViewContainerRef } from '@angular/core';
 //import { animate } from '@angular/animations';
@@ -27,6 +28,7 @@ export class TweetComponent implements OnInit {
   constructor(
     //public viewContainerRef: ViewContainerRef,
     //private resolver: ComponentFactoryResolver
+    private route:Router //routerLinkのために必要だと思っているのだが・・
   ){
     //this.mediaurl = "tweet.entities?.media[0].media_url_https";
   };

@@ -28,7 +28,7 @@ export class TrendComponent implements OnInit {
 
   search(arg):string {
     if(arg[0]=="#"){
-      arg=arg.replace("#","23");
+      arg=arg.replace("#","");
     }
     return "search/"+arg;
   }

@@ -22,6 +22,7 @@ import { TwitterService } from './twitter.service';
 import { TestComponent } from './test/test.component';
 import { TwgetComponent } from './shared/twget/twget.component';
 import { TrendComponent } from './trend/trend.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -46,12 +47,15 @@ import { TrendComponent } from './trend/trend.component';
     ClarityModule,
     MomentModule,
     AppRoutingModule,
+    RouterModule ,
   ],
   exports: [
     UserTimelineComponent
   ],
   providers: [TweetService,
-    TwitterService],
+    TwitterService,
+    AppRoutingModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -55,6 +55,12 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+a.link-active {
+  color: blue($color: #0000cc);
+}
+
+
 ::ng-deep {
     .modal-body {
         text-align: left;

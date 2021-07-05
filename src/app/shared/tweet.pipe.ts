@@ -2,6 +2,7 @@ import { Pipe, PipeTransform, SecurityContext, ComponentFactory } from '@angular
 import { Tweet } from './tweet';
 import { DomSanitizer } from '@angular/platform-browser';
 import { TwitterService } from '../twitter.service';
+import { TestBed } from '@angular/core/testing';
 
 @Pipe({
   name: 'tweet'
@@ -22,7 +23,10 @@ export class TweetPipe implements PipeTransform {
     }
 
     // Replace # hashtag with links
-    //text = text.replace(new RegExp('#(\\S+)([\\s|$])', 'gi'),`<a  [routerLink]=['/search',23\$1] routerLinkActive="active-link">#\$1\$2</a>`);
+    //text = text.replace(new RegExp('#(\\S+)([\\s|$])', 'gi'),`<a  [routerLink]=['/search/$1'] routerLinkActive="active fulffy">#\$1\$2</a>`);
+    //text = text.replace(new RegExp('#(\\S+)([\\s|$])', 'gi'),'<a  [routerLink]="search/$1" routerLinkActive="active">#$1$2</a>');
+    //text = text.replace(new RegExp('#(\\S+)([\\s|$])', 'gi'),'<a  routerLink="/search/\$1" [routerLinkActive]="is-active">#\$1\$2</a>');
+    //text = text.replace(new RegExp('#(\\S+)([\\s|$])', 'gi'),'<a  [routerLink]="[\'/search/\$1\']" routerLinkActive="active fulffy">#\$1\$2</a>');
     text = text.replace(new RegExp('#(\\S+)([\\s|$])', 'gi'),`<a  href="search/\$1" >#\$1\$2</a>`);
 
 
@@ -71,6 +75,7 @@ export class TweetPipe implements PipeTransform {
     // Replace newline characters
     text = text.replace(/\n/gm, '<br />');
 
+    //return text;
     return this.sanitizer.bypassSecurityTrustHtml(text);
   }
 
