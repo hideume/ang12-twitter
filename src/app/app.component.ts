@@ -35,5 +35,7 @@ export class AppComponent implements OnInit {
     this.in1.nativeElement.value = "";
     },e=>{console.log("tweet error")});
   }
-
+  onKeypressEvent(event: any){
+    console.log(event.target.value);
+ }
 }
