@@ -1,17 +1,25 @@
-<clr-main-container>
+<clr-main-container >
   <clr-header class="header-4">
     <div class="branding" style="display:flex;align-content: flex-end;">
+      <!-- 一番左のタイトル部分-->
       <a class="nav-link">
         <div class="title">Simple Twitter</div>
       </a>
+      <!-- tweets部分-->
       <a routerLink="tweets" class="title">tweets</a>
+      <!-- limit部分-->
       <a routerLink="limit"class="title">limit</a>
+      <!-- trend部分-->
       <a routerLink="trend"class="title">trend</a>
-      <input #in1 class="title" type="text" size="30" style="color: black;" (keypress)="onKeypressEvent($event)" >
+      <!-- input領域-->
+      <input #in1 class="title" type="text" size="30" style="color: black;">
+      <!-- 検索ボタン-->
       <button (click)="clicked()" style="height:30px;align-self: flex-end;margin:8px">検索</button>
+      <!-- tweetボタン-->
       <button (click)="tweet()" style="height:30px;align-self: flex-end;margin:8px">tweet</button>
     </div>
-    <div class="header-actions" *ngIf="user">
+      <!-- 一番右のアイコンイメージ-->
+      <div class="header-actions" *ngIf="user">
       <a class="nav-link" routerLink="/users/{{user.screen_name}}">
         <span class="nav-text">
           <img [src]="user.profile_image_url_https" class="avatar" />
