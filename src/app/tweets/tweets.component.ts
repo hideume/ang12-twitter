@@ -1,4 +1,4 @@
-import { Component, OnInit, Input  } from '@angular/core';
+import { Component, OnInit, Input, HostListener  } from '@angular/core';
 import { Tweet } from '../shared/tweet';
 import { TwitterService } from '../twitter.service';
 import { TweetService } from '../shared/tweet.service';
@@ -20,7 +20,13 @@ export class TweetsComponent implements OnInit  {
     this.tweets = this.tweetserv.getTweets();
   }
 
-
+  @HostListener('window:Keydown',['$event'])
+  OnKeydown(event: KeyboardEvent) {
+    console.log(event);
+    if(event.key==="Home"){
+      console.log("Home press")
+    }
+  }
 
   action(action, index) {
     if (this.inflight) {

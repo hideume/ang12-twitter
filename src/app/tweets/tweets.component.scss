@@ -9,6 +9,7 @@
   margin: 5px;    
   padding: 5px;
     width: 48%;
+  //  height: 100%; //これを設定するとカードの高さがそろっていないというのがわかる
   display: flex;
   flex-direction: column; //ここはフッターを制御したい
 }
