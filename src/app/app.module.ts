@@ -5,6 +5,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ClarityModule } from '@clr/angular';
 //import { MomentModule } from 'angular2-moment';
 import { MomentModule } from 'ngx-moment';
+import 'moment/locale/ja';
 
 import { AppComponent } from './app.component';
 import { TweetComponent } from './shared/tweet.component';
