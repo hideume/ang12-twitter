@@ -17,6 +17,8 @@
       <button (click)="clicked()" style="height:30px;align-self: flex-end;margin:8px">検索</button>
       <!-- tweetボタン-->
       <button (click)="tweet()" style="height:30px;align-self: flex-end;margin:8px">tweet</button>
+      <!-- tweetボタン-->
+      <span class="title">  tweets={{aptwsv.tweets.length}}</span>
     </div>
       <!-- 一番右のアイコンイメージ-->
       <div class="header-actions" *ngIf="user">

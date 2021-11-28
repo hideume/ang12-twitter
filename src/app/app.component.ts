@@ -12,10 +12,12 @@ export class AppComponent implements OnInit {
   @ViewChild('in1',{static:true,read: ElementRef}) public in1:ElementRef;
   // login selfuser
   user;
+  aptwsv;
 
   constructor(private twitter: TwitterService,private router:Router,
     private twsv:TweetService //これを指定しておかないとリロードする。
     ) {
+      this.aptwsv=twsv;
     }
 
   ngOnInit() {
