@@ -47,3 +47,4 @@ sequenceDiagram
 * 11/23 icon change
 * 11/24 retweet
 * 11/29 search
+* 21/11/28 home,endkeyを有効にした
