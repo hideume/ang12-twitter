@@ -21,9 +21,11 @@ export class TweetComponent implements OnInit {
   @Input() tweet: Tweet;
   @Input() retweet: Tweet;
   @Input() count: string;
+  // actionの使い方が違うようだなあ、なにしたかったんだろう？
   @Output() action = new EventEmitter<{property: string, tweet: Tweet}>();
   @ViewChildren('imgtags',{read:ElementRef}) imgs:QueryList<ElementRef>;
 
+  mediaflg:boolean;
 
   constructor(
     //public viewContainerRef: ViewContainerRef,

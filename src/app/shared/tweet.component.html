@@ -20,7 +20,8 @@
 <div  class="card-block">
   <p class="card-text" [innerHTML]="tweet | tweet "></p>
   <div class="card-img" *ngIf="hasPhoto(tweet)">
-      <img [src]="tweet.entities?.media[0].media_url_https" (click)="media = true" />
+    <!--  ここのmediaflgは変数を変更して、clr-modalをopenさせるというコード-->
+      <img [src]="tweet.entities?.media[0].media_url_https" (click)="mediaflg = true" />
       <!-- <img [src]="tweet.entities?.media[0].expanded_url" (click)="media = true" /> -->
   </div>
 </div>
@@ -34,7 +35,9 @@
     <clr-icon shape="minus"></clr-icon> 
     {{retweet.created_at | date:'MM/dd HH:mm:SS'}}
 </div>
-<clr-modal [(clrModalOpen)]="media" *ngIf="tweet.entities.media" clrModalSize="lg">
+<!--  ここはmediaがあった場合にopenするが、mediaというのがよくわからない-->
+<!-- 　そうか、ここでは変数を作ればいいだけか-->
+<clr-modal [(clrModalOpen)]="mediaflg" *ngIf="tweet.entities.media" clrModalSize="lg">
   <h3 class="modal-title"><img [src]="tweet.user.profile_image_url_https" class="avatar" /> {{tweet.user.name}} (@{{tweet.user.screen_name}})
     <span *ngIf="retweet" class="retweeted"><clr-icon shape="sync"></clr-icon> Retweeted by {{retweet.user.name}}</span></h3>
     <div class="modal-body" *ngIf="hasPhoto(tweet)" style="text-align: center;">
