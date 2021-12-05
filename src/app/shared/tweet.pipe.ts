@@ -7,6 +7,9 @@ import { TestBed } from '@angular/core/testing';
 @Pipe({
   name: 'tweet'
 })
+/*
+このpipeはハッシュタグやhttpに<a>タグをつけたりしてます
+*/
 export class TweetPipe implements PipeTransform {
 
   constructor(private sanitizer: DomSanitizer,private twitter: TwitterService) {}

@@ -2,7 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ClarityModule } from '@clr/angular';
+import { ClarityModule, ClrIconModule } from '@clr/angular';
+import '@cds/core/icon/register.js';
+//import { ClarityIcons, userIcon } from '@cds/core/icon';
+import {MatIconModule} from '@angular/material/icon'
 //import { MomentModule } from 'angular2-moment';
 import { MomentModule } from 'ngx-moment';
 import 'moment/locale/ja';
@@ -49,6 +52,8 @@ import { RouterModule } from '@angular/router';
     MomentModule,
     AppRoutingModule,
     RouterModule ,
+    ClrIconModule,
+    MatIconModule,
   ],
   exports: [
     UserTimelineComponent

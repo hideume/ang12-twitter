@@ -52,6 +52,15 @@ export class TweetComponent implements OnInit {
     return false;
   }
 
+  hasMovie(tweet: Tweet) {
+    if (tweet.entities.media
+        && tweet.extended_entities.media.length 
+        && tweet.extended_entities.media[0].type === 'video') {
+      return true;
+    }
+    return false;
+  }
+
   //2
   hasPhoto2(tweet: Tweet) {
     if (tweet.entities.media
@@ -69,6 +78,9 @@ export class TweetComponent implements OnInit {
     console.log(msg);
   }
 
+  /*
+  ダイアログからよばれる。
+  */
   imagemv(norp,tweet: Tweet){
     let setno = this.getnum();
     let i = 0;

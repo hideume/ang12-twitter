@@ -5,21 +5,33 @@
   (<a routerLink="/userhome/{{tweet.user.screen_name}}" >@{{tweet.user.screen_name}}</a>)
   <span *ngIf="retweet" class="retweeted"><clr-icon shape="sync"></clr-icon> Retweeted by {{retweet.user.name}} (@{{retweet.user.screen_name}})</span>
   <div class="card-header-actions" style="font-size: small;">
+    <!-- ここは「いいね」のtooltipの定義 -->
     <a role="tooltip" aria-haspopup="true" class="tooltip tooltip-xs">
-      <img src="../../assets/img/hart.png" style="width:14px;" (click)="toggleAction('favorite')"/> {{tweet.favorite_count}}
+      <img src="../../assets/img/hart.png" style="width:14px;" (click)="toggleAction('favorite')"/>
       <span class="tooltip-content">favo</span>
     </a>
+    <!-- {{の1つの空白は表示のため -->
+    <span> {{tweet.favorite_count}} </span>
+    <!-- ここは「retweet」のtooltipの定義 -->
     <a role="tooltip" aria-haspopup="true" class="tooltip tooltip-xs">
         <img src="../../assets/img/re3.png" (click)="toggleAction('retweet')"/>
        <span class="tooltip-content">retweet</span>
-       </a>
-    <a *ngIf="retweet" routerLink="/retweetg/{{tweet.id_str}}">{{tweet.retweet_count}}</a>
-    <span *ngIf="!retweet" >{{tweet.retweet_count}}</span>
+    </a>
+    <!--reteet数をクリックしたらグラフに移動    {{の1つの空白は表示のため-->
+    <a *ngIf="retweet" routerLink="/retweetg/{{tweet.id_str}}"> {{tweet.retweet_count}}</a>
+    <!--reteet数の表示    -->
+    <span *ngIf="!retweet" > {{tweet.retweet_count}}</span>
   </div>
 </div>
 <div  class="card-block">
   <p class="card-text" [innerHTML]="tweet | tweet "></p>
-  <div class="card-img" *ngIf="hasPhoto(tweet)">
+  <div class="card-img" *ngIf="hasMovie(tweet)">
+    <!--  ここのmediaflgは変数を変更して、clr-modalをopenさせるというコード-->
+      <img [src]="tweet.entities?.media[0].media_url_https" (click)="mediaflg = true" />
+      videoあり
+      <!-- <img [src]="tweet.entities?.media[0].expanded_url" (click)="media = true" /> -->
+  </div>
+  <div class="card-img" *ngIf="!hasMovie(tweet)&&hasPhoto(tweet)">
     <!--  ここのmediaflgは変数を変更して、clr-modalをopenさせるというコード-->
       <img [src]="tweet.entities?.media[0].media_url_https" (click)="mediaflg = true" />
       <!-- <img [src]="tweet.entities?.media[0].expanded_url" (click)="media = true" /> -->
@@ -32,7 +44,8 @@
 </div>
 <div class="card-footer" *ngIf="retweet">
     {{retweet.created_at | amTimeAgo}} 
-    <clr-icon shape="minus"></clr-icon> 
+    <clr-icon shape="home"></clr-icon> 
+    <!-- <mat-icon svgIcon="Home">Home</mat-icon> -->
     {{retweet.created_at | date:'MM/dd HH:mm:SS'}}
 </div>
 <!--  ここはmediaがあった場合にopenするが、mediaというのがよくわからない-->
@@ -40,13 +53,17 @@
 <clr-modal [(clrModalOpen)]="mediaflg" *ngIf="tweet.entities.media" clrModalSize="lg">
   <h3 class="modal-title"><img [src]="tweet.user.profile_image_url_https" class="avatar" /> {{tweet.user.name}} (@{{tweet.user.screen_name}})
     <span *ngIf="retweet" class="retweeted"><clr-icon shape="sync"></clr-icon> Retweeted by {{retweet.user.name}}</span></h3>
-    <div class="modal-body" *ngIf="hasPhoto(tweet)" style="text-align: center;">
+    <div class="modal-body" *ngIf="hasPhoto(tweet) && !hasMovie(tweet)" style="text-align: center;">
       <!-- ここのimgは複数存在し、style.displayで表示、非表示を制御 -->
       <img  #imgtags *ngFor="let ig of tweet.extended_entities.media;first as fst" [src]="ig.media_url_https" [style.display]="fst?'block':'none'" height="500" class="eximg">
       <div style="text-align: center;" *ngIf="hasPhoto2(tweet)" >
         <button (click)="imagemv(0,tweet)"><<</button>
         <button (click)="imagemv(1,tweet);">>></button>
       </div>
+    </div>
+    <div class="modal-body" *ngIf="hasMovie(tweet)" style="text-align: center;">
+      <video *ngIf="hasMovie(tweet)" [src]="tweet.extended_entities.media[0].video_info.variants[0].url" autoplay controls>
+      </video>
     </div>
     <div class="modal-footer" [innerHTML]="tweet | tweet"></div>
 </clr-modal>

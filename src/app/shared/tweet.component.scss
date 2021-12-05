@@ -45,12 +45,16 @@
 }
 
 .card-footer {
-  display:flex;
+  //display:flex;
   //margin-top: -30px;;
   height: 35px;
   //margin-top: auto; //これが効かないんだよなあ
-  margin-bottom: 2px;
+  //margin-bottom: 2px;
   //position: static; //position: absoluteが設定してあるんだよねえ
+  //position: fixed; //これはダメですね。画面の最下限になってしまう
+  //bottom: 0; //これは上とセット
+  //align-self: self-end;
+  align-items:flex-end;
 }
 
 .eximg {

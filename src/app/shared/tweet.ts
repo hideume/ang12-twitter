@@ -47,6 +47,10 @@ export class Tweet {
           h: number;
           resize: 'fit' | 'crop';
         };
+      }
+      video_info: {
+        variants :
+         {url:string;}[];
       };
     }[];
     urls: {
