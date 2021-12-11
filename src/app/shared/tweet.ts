@@ -50,7 +50,8 @@ export class Tweet {
       }
       video_info: {
         variants :
-         {url:string;}[];
+         {url:string;
+          content_type:string;}[];
       };
     }[];
     urls: {
