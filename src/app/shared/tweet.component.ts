@@ -53,12 +53,14 @@ export class TweetComponent implements OnInit {
   }
 
   hasMovie(tweet: Tweet) {
-    if (tweet.entities.media
+    if (tweet.entities.media !=null
+      　&& tweet.extended_entities != null 
         && tweet.extended_entities.media.length 
         && tweet.extended_entities.media[0].type === 'video') {
       return true;
+    }else{
+      return false;
     }
-    return false;
   }
 
   //2
@@ -113,4 +115,14 @@ export class TweetComponent implements OnInit {
     });
     return ri;
   };
+
+  getMovie(tw:Tweet):string {
+    var rt:string;
+    tw.extended_entities.media[0].video_info.variants.forEach((va)=> {
+      if(va.content_type == 'video/mp4' && (va.bitrate <= 832000)){
+        rt = va.url; 
+      }
+    });
+    return rt;
+  }
 }

@@ -51,7 +51,8 @@ export class Tweet {
       video_info: {
         variants :
          {url:string;
-          content_type:string;}[];
+          content_type:string;
+          bitrate:number}[];
       };
     }[];
     urls: {
