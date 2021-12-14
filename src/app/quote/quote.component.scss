@@ -1,0 +1,81 @@
+.card-header {
+  display: inline; //blockにすると変になる
+  padding: 0;
+
+  .retweeted {
+    font-size: 0.5rem;
+    font-style: italic;
+    margin:5px;
+  }
+
+  .card-header-actions {
+    display: inline-block;
+    //float: right;
+    text-align: right;
+  }
+  .avater {
+    height: 100px;
+  }
+}
+.card-block {
+  display: flex;
+  flex-grow: 1; //ここを増加させるつもりなんだが・・
+  //align-self: stretch;
+}
+.card-img {
+  display: flexbox; //これは無効なのか？
+  //grid-area: photo;
+  text-align: right;
+  //flex: 1;
+  img {
+    display: flex;
+    text-align: right;
+    float: right;
+    width: auto;
+    max-width: 300px;
+    max-height: 100px;
+  }
+}
+.card-text {
+  display: inline-flexbox; //よくわからんがflexにすると、個別に<a>xx</a>あたりが１つのブロックになっておかしい
+  //align-item: flax-start;
+  margin:3px; //imageとのマージンを3pxとる
+  //line-height: 1.3;
+  //flex: 1;
+}
+
+.card-footer {
+  //display:flex;
+  //margin-top: -30px;;
+  height: 35px;
+  //margin-top: auto; //これが効かないんだよなあ
+  //margin-bottom: 2px;
+  //position: static; //position: absoluteが設定してあるんだよねえ
+  //position: fixed; //これはダメですね。画面の最下限になってしまう
+  //bottom: 0; //これは上とセット
+  //align-self: self-end;
+  align-items:flex-end;
+}
+
+.eximg {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+a.link-active {
+  color: blue($color: #0000cc);
+}
+
+
+::ng-deep {
+    .modal-body {
+        text-align: left;
+        img {
+            max-width: 100%;
+        }
+    }
+    .modal-footer {
+        padding: 0;
+        text-align: left;
+    }
+}

@@ -98,4 +98,6 @@ export class Tweet {
   lang: string;
   retweet_status: Tweet;
   mediaurl: string;
+  is_quote_status: boolean;
+  quoted_status: Tweet;
 }

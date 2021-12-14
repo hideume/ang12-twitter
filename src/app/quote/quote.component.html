@@ -1,7 +1,6 @@
-<div class="card-header" style="font-size: small;">
-  {{count|number:'3.0-0'}}
-  <a routerLink="/users/{{tweet.user.screen_name}}">
-  <img [src]="tweet.user.profile_image_url_https" class="avatar" /></a> {{tweet.user.name}} 
+<div style="width:96%;border-style:solid;">
+<div class="card-header" >
+   {{tweet.user.name}} 
   (<a routerLink="/userhome/{{tweet.user.screen_name}}" >@{{tweet.user.screen_name}}</a>)
   <span *ngIf="retweet" class="retweeted"><clr-icon shape="sync"></clr-icon> Retweeted by {{retweet.user.name}} (@{{retweet.user.screen_name}})</span>
   <div class="card-header-actions" style="font-size: small;">
@@ -37,7 +36,7 @@
       <!-- <img [src]="tweet.entities?.media[0].expanded_url" (click)="media = true" /> -->
   </div>
 </div>
-  <app-quote *ngIf="tweet.is_quote_status" [tweet]="tweet.quoted_status"></app-quote>
+  <!-- <app-tweet *ngIf="tweet.is_quote_status" [tweet]="tweet.quoted_status"></app-tweet> -->
   <div class="card-footer" *ngIf="!retweet">
     {{tweet.created_at |  amTimeAgo}} 
     <clr-icon shape="minus"></clr-icon> 
@@ -49,7 +48,7 @@
     <!-- <mat-icon svgIcon="Home">Home</mat-icon> -->
     {{retweet.created_at | date:'MM/dd HH:mm:SS'}}
 </div>
-<!--  ここはmediaflgがあった場合にopenする mediaflgはイメージをclickするとtrueとなる-->
+</div>
 <clr-modal [(clrModalOpen)]="mediaflg" *ngIf="tweet.entities.media" clrModalSize="lg">
   <h3 class="modal-title"><img [src]="tweet.user.profile_image_url_https" class="avatar" /> {{tweet.user.name}} (@{{tweet.user.screen_name}})
     <span *ngIf="retweet" class="retweeted"><clr-icon shape="sync"></clr-icon> Retweeted by {{retweet.user.name}}</span></h3>
