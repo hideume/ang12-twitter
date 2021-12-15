@@ -37,7 +37,7 @@
       <!-- <img [src]="tweet.entities?.media[0].expanded_url" (click)="media = true" /> -->
   </div>
 </div>
-  <app-quote *ngIf="tweet.is_quote_status" [tweet]="tweet.quoted_status"></app-quote>
+  <app-quote *ngIf="tweet.is_quote_status && tweet.quoted_status.user" [tweet]="tweet.quoted_status"></app-quote>
   <div class="card-footer" *ngIf="!retweet">
     {{tweet.created_at |  amTimeAgo}} 
     <clr-icon shape="minus"></clr-icon> 
