@@ -28,6 +28,7 @@ export class TweetsComponent implements OnInit  {
     }
   }
 
+  //actionはここではなくてshare/tweet.tsに移動すべきでしょうな。まだ、app-tweetの引数にすべきでもない
   action(action, index) {
     if (this.inflight) {
       return;

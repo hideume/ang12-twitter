@@ -68,6 +68,7 @@ app.get('/api/retweet', (req, res) => {
 app.get('/api/search', (req, res) => {
   const params = {q: req.query.query};
   console.log("q="+req.query.query)
+  //#付以外の検索
   if(req.query.query.substr(0,3)!='23'){
     client
       .get('search/tweets',params)
@@ -80,6 +81,7 @@ app.get('/api/search', (req, res) => {
         res.send(error);
       });
   }else{
+    //#の検索
     wd = req.query.query.substr(2);
     console.log("hashtag/search wd="+wd);
     client
