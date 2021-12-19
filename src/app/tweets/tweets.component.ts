@@ -29,19 +29,20 @@ export class TweetsComponent implements OnInit  {
   }
 
   //actionはここではなくてshare/tweet.tsに移動すべきでしょうな。まだ、app-tweetの引数にすべきでもない
-  action(action, index) {
-    if (this.inflight) {
-      return;
-    }
+  //移動中でとりあえず削除
+  // action(action, index) {
+  //   if (this.inflight) {
+  //     return;
+  //   }
 
-    const stateKey = action.property === 'favorite' ? 'favorited' : 'retweeted';
-    const newState = !action.tweet[stateKey];
+  //   const stateKey = action.property === 'favorite' ? 'favorited' : 'retweeted';
+  //   const newState = !action.tweet[stateKey];
 
-    this.inflight = true;
-    this.twitter.action(action.property, action.tweet.id_str, newState).subscribe(tweet => {
-      this.tweets[index][stateKey] = newState;
-      this.tweets[index][action.property + '_count'] += newState ? 1 : -1;
-      this.inflight = false;
-    });
-  }
+  //   this.inflight = true;
+  //   this.twitter.action(action.property, action.tweet.id_str, newState).subscribe(tweet => {
+  //     this.tweets[index][stateKey] = newState;
+  //     this.tweets[index][action.property + '_count'] += newState ? 1 : -1;
+  //     this.inflight = false;
+  //   });
+  // }
 }

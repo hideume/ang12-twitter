@@ -1,6 +1,14 @@
+#alldiv {
+  border:solid 1px silver;
+  width:99%;border-radius: 8px;
+  box-shadow:3px 3px 3px gray;
+  padding:0px;
+}
+
 .card-header {
-  display: inline; //blockにすると変になる
-  padding: 0;
+  //display: inline; //blockにすると変になる
+  margin-left: 0px;
+  font-size: small;
 
   .retweeted {
     font-size: 0.5rem;

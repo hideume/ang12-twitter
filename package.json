@@ -10,7 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "r1": "node server.js",
-    "r2": "php -S localhost:4200 dist\tw2"
+    "r2": "php -S localhost:4200 dist/tw2"
   },
   "private": true,
   "dependencies": {
