@@ -37,7 +37,7 @@
       <!-- <img [src]="tweet.entities?.media[0].expanded_url" (click)="media = true" /> -->
   </div>
 </div>
-  <app-quote *ngIf="tweet.is_quote_status && tweet.quoted_status.user" [tweet]="tweet.quoted_status"></app-quote>
+  <app-quote *ngIf="tweet.quoted_status?.user " [tweet]="tweet.quoted_status"></app-quote>
   <div class="card-footer" *ngIf="!retweet">
     {{tweet.created_at |  amTimeAgo}} 
     <clr-icon shape="minus"></clr-icon> 
@@ -71,3 +71,13 @@
     </div>
     <div class="modal-footer" [innerHTML]="tweet | tweet"></div>
 </clr-modal>
+<clr-modal [(clrModalOpen)]="actionflg" >
+  <h3 class="modal-title">action message</h3>
+  <div class="modal-body">
+    <p>actionを受け付けました</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="actionflg = false">Ok</button>
+  </div>
+</clr-modal>
+

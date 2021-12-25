@@ -27,6 +27,7 @@ export class TweetComponent implements OnInit {
   @ViewChildren('imgtags',{read:ElementRef}) imgs:QueryList<ElementRef>;
 
   mediaflg:boolean;
+  actionflg:boolean = false;
 
   constructor(
     //public viewContainerRef: ViewContainerRef,
@@ -148,7 +149,8 @@ export class TweetComponent implements OnInit {
     this.twitter.action(action, tweet.id_str, newState).subscribe(tweet2 => {
       tweet2[stateKey] = newState;
       tweet2[action + '_count'] += newState ? 1 : -1;
-      //this.inflight = false;
+      //結果をモーダルボックスに表示
+      this.actionflg = true;
     },error => {console.log("action error"+error)}
     );
   }
