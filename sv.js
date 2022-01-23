@@ -1,6 +1,6 @@
 const express = require("express");
 const app  = express();
-const port = 4200;
+const port = 443;
 
 // POSTのクエリーを良い感じに処理する
 app.use(express.static('./dist/tw2'));
