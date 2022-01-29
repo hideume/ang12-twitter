@@ -1,0 +1,2 @@
+ws: npm start
+worker:npm run r1
