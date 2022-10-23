@@ -1,7 +1,8 @@
 const express = require("express");
 const app  = express();
 //const port = 22512;
-let port = process.env.PORT;
+//let port = process.env.PORT;
+let port = 4500;
 
 // POSTのクエリーを良い感じに処理する
 app.use(express.static('./dist/tw2'));
