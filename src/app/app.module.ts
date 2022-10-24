@@ -7,6 +7,7 @@ import '@cds/core/icon/register.js';
 //import { ClarityIcons, userIcon } from '@cds/core/icon';
 import {MatIconModule} from '@angular/material/icon'
 import {MatButtonModule} from '@angular/material/button'
+import {MatToolbarModule} from '@angular/material/toolbar'
 //import { MomentModule } from 'angular2-moment';
 import { MomentModule } from 'ngx-moment';
 import 'moment/locale/ja';
@@ -58,6 +59,7 @@ import { RouterModule } from '@angular/router';
     ClrIconModule,
     MatIconModule,
     MatButtonModule,
+    MatToolbarModule,
   ],
   exports: [
     UserTimelineComponent

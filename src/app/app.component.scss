@@ -12,4 +12,15 @@
 
   .title {
     margin: 10px;
+    font-size: small;
+    color: azure;
+  }
+
+  .toolbar {
+    background-color: deepskyblue;
+  }
+
+
+  .example-spacer {
+    flex: 1 1 auto;
   }

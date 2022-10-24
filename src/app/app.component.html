@@ -1,39 +1,40 @@
-<clr-main-container >
-  <clr-header class="header-4">
-    <div class="branding" style="display:flex;align-content: flex-end;">
+<div id="clr-main-container" >
+  <!-- <clr-header class="header-4"> -->
+  <mat-toolbar  color="primary">
       <!-- 一番左のタイトル部分-->
       <a class="nav-link">
-        <div >Simple Twitter<br>v1.0.1</div>
+        <div style='font-size:80%;'>Simple Twitter<br>v2.0.1</div>
       </a>
       <!-- tweets部分-->
-      <a routerLink="tweets" class="title">tweets</a>
+      <a routerLink="tweets" class="title" >tweets</a>
       <!-- limit部分-->
-      <a routerLink="limit"class="title">limit</a>
+      <a routerLink="limit" class="title">limit</a>
       <!-- trend部分-->
-      <a routerLink="trend"class="title">trend</a>
+      <a routerLink="trend" class="title">trend</a>
       <!-- input領域-->
       <input #in1 class="title" type="text" size="30" style="color: black;">
       <!-- 検索ボタン-->
-      <button (click)="search()" style="height:30px;align-self: flex-end;margin:8px">検索</button>
+      <button mat-raised-button  (click)="search()" style="height:30px;align-self: flex-end;margin:8px">検索</button>
       <!-- tweetボタン-->
-      <button (click)="tweet()" style="height:30px;align-self: flex-end;margin:8px">tweet</button>
+      <button mat-raised-button  (click)="tweet()" style="height:30px;align-self: flex-end;margin:8px">tweet</button>
       <!-- tweetボタン-->
       <span class="title">  tweets={{aptwsv.tweets.length}}</span>
-    </div>
-      <!-- 一番右のアイコンイメージ-->
-      <div class="header-actions" *ngIf="user">
+
+      <span class="example-spacer"></span>
+      
       <a class="nav-link" routerLink="/users/{{user.screen_name}}">
-        <span class="nav-text">
+        <span style='font-size:60%;'>
           <img [src]="user.profile_image_url_https" class="avatar" />
           @{{user.screen_name}}
         </span>
       </a>
-    </div>
-  </clr-header>
+  <!-- </clr-header> -->
+  </mat-toolbar>
   <div class="content-container">
     <main class="content-area">
       <router-outlet></router-outlet>
       <!-- <app-tweets></app-tweets> -->
     </main>
   </div>
-</clr-main-container>
+<!-- </clr-main-container> -->
+</div>
