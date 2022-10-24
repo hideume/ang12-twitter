@@ -23,6 +23,8 @@
     <span *ngIf="!retweet" > {{tweet.retweet_count}}</span>
   </div>
 </div>
+
+
 <div  class="card-block">
   <p class="card-text" [innerHTML]="tweet | tweet "></p>
   <div class="card-img" *ngIf="hasMovie(tweet)">
@@ -37,18 +39,25 @@
       <!-- <img [src]="tweet.entities?.media[0].expanded_url" (click)="media = true" /> -->
   </div>
 </div>
-  <app-quote *ngIf="tweet.quoted_status?.user " [tweet]="tweet.quoted_status"></app-quote>
-  <div class="card-footer" *ngIf="!retweet">
+
+<!-- quoteがあったら呼ぶ -->
+<app-quote *ngIf="tweet.quoted_status?.user " [tweet]="tweet.quoted_status"></app-quote>
+
+
+<!-- ここからfooter -->
+<div class="card-footer" *ngIf="!retweet">
     {{tweet.created_at |  amTimeAgo}} 
-    <clr-icon shape="minus"></clr-icon> 
+    <!-- <clr-icon shape="minus"></clr-icon>  -->
+    <mat-icon size="10px" style="vertical-align: middle;display:inline-flex">code</mat-icon>
     {{tweet.created_at | date:'MM/dd HH:mm:SS'}}
 </div>
 <div class="card-footer" *ngIf="retweet">
     {{retweet.created_at | amTimeAgo}} 
-    <clr-icon shape="home"></clr-icon> 
-    <!-- <mat-icon svgIcon="Home">Home</mat-icon> -->
+    <!-- <clr-icon shape="home"></clr-icon>  -->
+    <mat-icon size="10px" style="vertical-align: middle;display:inline-flex">code</mat-icon>
     {{retweet.created_at | date:'MM/dd HH:mm:SS'}}
 </div>
+
 <!--  ここはmediaflgがあった場合にopenする mediaflgはイメージをclickするとtrueとなる-->
 <clr-modal [(clrModalOpen)]="mediaflg" *ngIf="tweet.entities.media" clrModalSize="lg">
   <h3 class="modal-title"><img [src]="tweet.user.profile_image_url_https" class="avatar" /> {{tweet.user.name}} (@{{tweet.user.screen_name}})
@@ -58,8 +67,14 @@
       <!-- ここのimgは複数存在し、style.displayで表示、非表示を制御 -->
       <img  #imgtags *ngFor="let ig of tweet.extended_entities.media;first as fst" [src]="ig.media_url_https" [style.display]="fst?'block':'none'" height="500" class="eximg">
       <div style="text-align: center;" *ngIf="hasPhoto2(tweet)" >
-        <button (click)="imagemv(0,tweet)"><clr-icon shape="rewind"></clr-icon></button>
-        <button (click)="imagemv(1,tweet);"><clr-icon shape="fast-forward"></clr-icon></button>
+        <button mat-icon-button (click)="imagemv(0,tweet)">
+          <!-- <clr-icon shape="rewind"></clr-icon> -->
+          <mat-icon size="10px" style="vertical-align: middle;display:inline-flex">chevron_left</mat-icon>
+        </button>
+        <button mat-icon-button (click)="imagemv(1,tweet);">
+          <!-- <clr-icon shape="fast-forward"></clr-icon></button> -->
+          <mat-icon size="10px" style="vertical-align: middle;display:inline-flex">chevron_right</mat-icon>
+        </button>
       </div>
     </div>
     <!-- 動画の場合 -->
