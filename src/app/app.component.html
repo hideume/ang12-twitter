@@ -2,9 +2,9 @@
   <!-- <clr-header class="header-4"> -->
   <mat-toolbar  color="primary">
       <!-- 一番左のタイトル部分-->
-      <a class="nav-link">
+      <!-- <a class="nav-link"> -->
         <div style='font-size:80%;'>Simple Twitter<br>v2.0.1</div>
-      </a>
+      <!-- </a> -->
       <!-- tweets部分-->
       <a routerLink="tweets" class="title" >tweets</a>
       <!-- limit部分-->
@@ -23,7 +23,7 @@
       <span class="example-spacer"></span>
       
       <a class="nav-link" routerLink="/users/{{user.screen_name}}">
-        <span style='font-size:60%;'>
+        <span style='font-size:60%;' >
           <img [src]="user.profile_image_url_https" class="avatar" />
           @{{user.screen_name}}
         </span>
