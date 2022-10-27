@@ -8,6 +8,7 @@ import '@cds/core/icon/register.js';
 import {MatIconModule} from '@angular/material/icon'
 import {MatButtonModule} from '@angular/material/button'
 import {MatToolbarModule} from '@angular/material/toolbar'
+import {MatDialogModule} from '@angular/material/dialog'
 //import { MomentModule } from 'angular2-moment';
 import { MomentModule } from 'ngx-moment';
 import 'moment/locale/ja';
@@ -60,6 +61,7 @@ import { RouterModule } from '@angular/router';
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
+    MatDialogModule,
   ],
   exports: [
     UserTimelineComponent

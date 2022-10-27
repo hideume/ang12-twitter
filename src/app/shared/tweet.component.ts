@@ -1,9 +1,10 @@
 import { Component , Input ,Output,OnInit,ViewChildren,
           EventEmitter,
-          QueryList, 
+          QueryList, TemplateRef,
           ElementRef} from '@angular/core';
 import { Tweet } from './tweet';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog'
 import { TwitterService } from '../twitter.service';
 //import { TwgetComponent } from './twget/twget.component';
 //import { ComponentFactory, ComponentFactoryResolver,ViewContainerRef } from '@angular/core';
@@ -33,7 +34,8 @@ export class TweetComponent implements OnInit {
     //public viewContainerRef: ViewContainerRef,
     //private resolver: ComponentFactoryResolver
     private route:Router, //routerLinkのために必要だと思っているのだが・・
-    private twitter:TwitterService
+    private twitter:TwitterService,
+    private dialog: MatDialog
   ){
     //this.mediaurl = "tweet.entities?.media[0].media_url_https";
   };
@@ -44,6 +46,10 @@ export class TweetComponent implements OnInit {
     //this.viewContainerRef.createComponent(this.factory);
   }
 
+
+  openDialogWithTemplateRef(templateRef: TemplateRef<any>) {
+    this.dialog.open(templateRef);
+  }
 
 
   hasPhoto(tweet: Tweet) {
