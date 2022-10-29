@@ -3,7 +3,7 @@ import { NgModule ,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 //import { ClarityModule, ClrIconModule } from '@clr/angular';
-import '@cds/core/icon/register.js';
+//import '@cds/core/icon/register.js';
 //import { ClarityIcons, userIcon } from '@cds/core/icon';
 import {MatIconModule} from '@angular/material/icon'
 import {MatButtonModule} from '@angular/material/button'

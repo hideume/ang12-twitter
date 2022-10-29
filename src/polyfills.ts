@@ -78,4 +78,4 @@ import 'zone.js';  // Included with Angular CLI.
  * APPLICATION IMPORTS
  */
 import  "@webcomponents/custom-elements";
-import '@clr/icons';
+//import '@clr/icons';
