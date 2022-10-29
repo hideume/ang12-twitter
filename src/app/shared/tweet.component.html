@@ -65,6 +65,9 @@
 <!--  ここはmediaflgがあった場合にopenする mediaflgはイメージをclickするとtrueとなる-->
 <!-- <clr-modal [(clrModalOpen)]="mediaflg" *ngIf="tweet.entities.media" clrModalSize="lg"> -->
 <ng-template #myDialog>
+  <button mat-icon-button class="close-button" [mat-dialog-close]="true" >
+    <mat-icon class="close-icon" color="warn">close</mat-icon>
+  </button>
   <h3 mat-dialog-title><img [src]="tweet.user.profile_image_url_https" class="avatar" /> {{tweet.user.name}} (@{{tweet.user.screen_name}})
     <span *ngIf="retweet" class="retweeted">
       <!-- <clr-icon shape="sync"></clr-icon>  -->
@@ -73,22 +76,22 @@
   </h3>
   <mat-dialog-action>
     <!-- 静止画の場合 -->
-    <div  *ngIf="hasPhoto(tweet) && !hasMovie(tweet)" style="text-align: center;">
+    <div  *ngIf="hasPhoto(tweet) && !hasMovie(tweet)" style="text-align: center;" cdkFocusInitial>
       <!-- ここのimgは複数存在し、style.displayで表示、非表示を制御 -->
       <img  #imgtags *ngFor="let ig of tweet.extended_entities.media;first as fst" [src]="ig.media_url_https" [style.display]="fst?'block':'none'" height="500" class="eximg">
       <div style="text-align: center;" *ngIf="hasPhoto2(tweet)" >
-        <button mat-icon-button (click)="imagemv(0,tweet)">
+        <button mat-icon-button (click)="imagemv(0,tweet)" color="secondary">
           <!-- <clr-icon shape="rewind"></clr-icon> -->
-          <mat-icon size="10px" style="vertical-align: middle;display:inline-flex" color="secondary">chevron_left</mat-icon>
+          <mat-icon size="10px" style="vertical-align: middle;display:inline-flex" >chevron_left</mat-icon>
         </button>
-        <button mat-icon-button (click)="imagemv(1,tweet);">
+        <button mat-icon-button (click)="imagemv(1,tweet);"  color="secondary">
           <!-- <clr-icon shape="fast-forward"></clr-icon></button> -->
-          <mat-icon size="10px" style="vertical-align: middle;display:inline-flex" color="secondary">chevron_right</mat-icon>
+          <mat-icon size="10px" style="vertical-align: middle;display:inline-flex">chevron_right</mat-icon>
         </button>
       </div>
     </div>
     <!-- 動画の場合 -->
-    <div  *ngIf="hasMovie(tweet)" style="text-align: center;">
+    <div  *ngIf="hasMovie(tweet)" style="text-align: center;" cdkFocusInitial>
       <video *ngIf="hasMovie(tweet)"  controls muted playsinline> 
         <source [src]="getMovie(tweet)" > 
         <!-- <source [src]="tweet.extended_entities.media[0].video_info.variants[1].url" [type]="tweet.extended_entities.media[0].video_info.variants[1].content_type">  -->

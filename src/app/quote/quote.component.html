@@ -1,6 +1,9 @@
 <div id="alldiv"  >
 <div class="card-header" style="" >{{tweet.user.name}}(<a routerLink="/userhome/{{tweet.user.screen_name}}" >@{{tweet.user.screen_name}}</a>)
-  <span *ngIf="retweet" class="retweeted"><clr-icon shape="sync"></clr-icon> Retweeted by {{retweet.user.name}} (@{{retweet.user.screen_name}})</span>
+  <span *ngIf="retweet" class="retweeted">
+    <!-- <clr-icon shape="sync"></clr-icon>  -->
+    <mat-icon >sync</mat-icon>  -->
+    Retweeted by {{retweet.user.name}} (@{{retweet.user.screen_name}})</span>
   <div class="card-header-actions" style="font-size: small;">
     <!-- ここは「いいね」のtooltipの定義 -->
     <a role="tooltip" aria-haspopup="true" class="tooltip tooltip-xs">
@@ -24,13 +27,13 @@
   <p class="card-text" [innerHTML]="tweet | tweet "></p>
   <div class="card-img" *ngIf="hasMovie(tweet)">
     <!--  ここのmediaflgは変数を変更して、clr-modalをopenさせるというコード-->
-      <img [src]="tweet.entities?.media[0].media_url_https" (click)="mediaflg = true" />
+      <img [src]="tweet.entities?.media[0].media_url_https" (click)="openDialogWithTemplateRef(myDialog)" />
       videoあり+{{tweet.id_str}}
       <!-- <img [src]="tweet.entities?.media[0].expanded_url" (click)="media = true" /> -->
   </div>
   <div class="card-img" *ngIf="!hasMovie(tweet)&&hasPhoto(tweet)">
     <!--  ここのmediaflgは変数を変更して、clr-modalをopenさせるというコード-->
-      <img [src]="tweet.entities?.media[0].media_url_https" (click)="mediaflg = true" />
+      <img [src]="tweet.entities?.media[0].media_url_https" (click)="openDialogWithTemplateRef(myDialog)" />
       <!-- <img [src]="tweet.entities?.media[0].expanded_url" (click)="media = true" /> -->
   </div>
 </div>
@@ -49,11 +52,22 @@
     {{retweet.created_at | date:'MM/dd HH:mm:SS'}}
 </div>
 </div>
-<clr-modal [(clrModalOpen)]="mediaflg" *ngIf="tweet.entities.media" clrModalSize="lg">
+
+
+<!-- <clr-modal [(clrModalOpen)]="mediaflg" *ngIf="tweet.entities.media" clrModalSize="lg"> -->
+  <ng-template #myDialog>
+  <button mat-icon-button class="close-button" [mat-dialog-close]="true" >
+    <mat-icon class="close-icon" color="warn">close</mat-icon>
+  </button>  
   <h3 class="modal-title"><img [src]="tweet.user.profile_image_url_https" class="avatar" /> {{tweet.user.name}} (@{{tweet.user.screen_name}})
-    <span *ngIf="retweet" class="retweeted"><clr-icon shape="sync"></clr-icon> Retweeted by {{retweet.user.name}}</span></h3>
+    <span *ngIf="retweet" class="retweeted">
+      <!-- <clr-icon shape="sync"></clr-icon> -->
+      <mat-icon>sync</mat-icon>
+       Retweeted by {{retweet.user.name}}</span>
+  </h3>
+  <mat-dialog-action>
     <!-- 静止画の場合 -->
-    <div class="modal-body" *ngIf="hasPhoto(tweet) && !hasMovie(tweet)" style="text-align: center;">
+    <div class="modal-body" *ngIf="hasPhoto(tweet) && !hasMovie(tweet)" style="text-align: center;" cdkFocusInitial>
       <!-- ここのimgは複数存在し、style.displayで表示、非表示を制御 -->
       <img  #imgtags *ngFor="let ig of tweet.extended_entities.media;first as fst" [src]="ig.media_url_https" [style.display]="fst?'block':'none'" height="500" class="eximg">
       <div style="text-align: center;" *ngIf="hasPhoto2(tweet)" >
@@ -68,11 +82,13 @@
       </div>
     </div>
     <!-- 動画の場合 -->
-    <div class="modal-body" *ngIf="hasMovie(tweet)" style="text-align: center;">
+    <div class="modal-body" *ngIf="hasMovie(tweet)" style="text-align: center;" cdkFocusInitial>
       <video *ngIf="hasMovie(tweet)"  controls muted playsinline> 
         <source [src]="getMovie(tweet)" > 
         <!-- <source [src]="tweet.extended_entities.media[0].video_info.variants[1].url" [type]="tweet.extended_entities.media[0].video_info.variants[1].content_type">  -->
       </video>
     </div>
     <div class="modal-footer" [innerHTML]="tweet | tweet"></div>
-</clr-modal>
+  </mat-dialog-action>
+</ng-template>
+    <!-- </clr-modal> -->

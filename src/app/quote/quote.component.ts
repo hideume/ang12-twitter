@@ -1,7 +1,10 @@
 import { Component , Input ,Output,OnInit,ViewChildren,
           EventEmitter,
           QueryList, 
-          ElementRef} from '@angular/core';
+          ElementRef,TemplateRef} from '@angular/core';
+
+import { MatDialog } from '@angular/material/dialog'
+
 import { Tweet } from '../shared/tweet';
 import { Router } from '@angular/router';
 //import { TwgetComponent } from './twget/twget.component';
@@ -29,7 +32,8 @@ export class QuoteComponent implements OnInit {
   constructor(
     //public viewContainerRef: ViewContainerRef,
     //private resolver: ComponentFactoryResolver
-    private route:Router //routerLinkのために必要だと思っているのだが・・
+    private route:Router, //routerLinkのために必要だと思っているのだが・・
+    private dialog: MatDialog
   ){
     //this.mediaurl = "tweet.entities?.media[0].media_url_https";
   };
@@ -100,6 +104,10 @@ export class QuoteComponent implements OnInit {
       }
       i=i+1;
     });
+  }
+
+  openDialogWithTemplateRef(templateRef: TemplateRef<any>) {
+    this.dialog.open(templateRef);
   }
 
   // blockのある番号を返す

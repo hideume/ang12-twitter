@@ -9,6 +9,8 @@ import {MatIconModule} from '@angular/material/icon'
 import {MatButtonModule} from '@angular/material/button'
 import {MatToolbarModule} from '@angular/material/toolbar'
 import {MatDialogModule} from '@angular/material/dialog'
+import {A11yModule} from '@angular/cdk/a11y'
+
 //import { MomentModule } from 'angular2-moment';
 import { MomentModule } from 'ngx-moment';
 import 'moment/locale/ja';
@@ -62,6 +64,7 @@ import { RouterModule } from '@angular/router';
     MatButtonModule,
     MatToolbarModule,
     MatDialogModule,
+    A11yModule,
   ],
   exports: [
     UserTimelineComponent
