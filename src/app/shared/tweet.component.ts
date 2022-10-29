@@ -156,7 +156,10 @@ export class TweetComponent implements OnInit {
       tweet2[stateKey] = newState;
       tweet2[action + '_count'] += newState ? 1 : -1;
       //結果をモーダルボックスに表示
-      this.actionflg = true;
+      //this.actionflg = true;
+
+      //以下みたいにしたいんだが、TemplateRefを参照しないといかんなあ
+      //openDialogWithTemplateRef("actionDialog");
     },error => {console.log("action error"+error)}
     );
   }

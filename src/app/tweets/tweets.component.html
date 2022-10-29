@@ -1,9 +1,11 @@
 <div class="tweets" (window:keydown)=OnKeydown($event)>
   <!-- <div class="card" *ngFor="let tweet of tweets; let i = index"> -->
-  <div class="card" *ngFor="let tweet of tweets; let i = index"> 
+  <!-- <div class="card" *ngFor="let tweet of tweets; let i = index">  -->
+  <mat-card  class="mat-elevation-z5" *ngFor="let tweet of tweets; let i = index">
     <!-- <app-tweet *ngIf="tweet.retweeted_status" [tweet]="tweet.retweeted_status" [retweet]="tweet" (action)="action($event, i)" [count]="i"></app-tweet> -->
     <app-tweet *ngIf="tweet.retweeted_status" [tweet]="tweet.retweeted_status" [retweet]="tweet"  [count]="i"></app-tweet>
     <!-- <app-tweet *ngIf="!tweet.retweeted_status" [tweet]="tweet" (action)="action($event, i)" [count]="i"></app-tweet> -->
     <app-tweet *ngIf="!tweet.retweeted_status" [tweet]="tweet" [count]="i"></app-tweet>
-  </div>
+  <!-- </div> -->
+  </mat-card>
 </div>

@@ -5,11 +5,12 @@
     flex-wrap: wrap;
   }
 
-.card {                   //ここはcard単位
-  margin: 5px;    
+.mat-elevation-z5 {                   //ここはcard単位
+  margin: 8px;    
   padding: 5px;
     width: 48%;
   //  height: 100%; //これを設定するとカードの高さがそろっていないというのがわかる
   display: flex;
   flex-direction: column; //ここはフッターを制御したい
+  border-radius: 5px;
 }

@@ -101,13 +101,17 @@
 <!-- </clr-modal> -->
   </mat-dialog-action>
 </ng-template>
-<clr-modal [(clrModalOpen)]="actionflg" >
-  <h3 class="modal-title">action message</h3>
-  <div class="modal-body">
+<!-- <clr-modal [(clrModalOpen)]="actionflg" > -->
+<ng-template #actionDialog>
+<h3 class="modal-title">action message</h3>
+<mat-dialog-action>
+<div class="modal-body">
     <p>actionを受け付けました</p>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-primary" (click)="actionflg = false">Ok</button>
   </div>
-</clr-modal>
+</mat-dialog-action>
+<!-- </clr-modal> -->
+</ng-template>
 

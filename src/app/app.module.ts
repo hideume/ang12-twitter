@@ -2,13 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule ,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ClarityModule, ClrIconModule } from '@clr/angular';
+//import { ClarityModule, ClrIconModule } from '@clr/angular';
 import '@cds/core/icon/register.js';
 //import { ClarityIcons, userIcon } from '@cds/core/icon';
 import {MatIconModule} from '@angular/material/icon'
 import {MatButtonModule} from '@angular/material/button'
 import {MatToolbarModule} from '@angular/material/toolbar'
 import {MatDialogModule} from '@angular/material/dialog'
+import {MatTableModule} from '@angular/material/table'
 import {A11yModule} from '@angular/cdk/a11y'
 
 //import { MomentModule } from 'angular2-moment';
@@ -55,16 +56,17 @@ import { RouterModule } from '@angular/router';
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ClarityModule,
     MomentModule,
     AppRoutingModule,
     RouterModule ,
-    ClrIconModule,
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
     MatDialogModule,
+    MatTableModule,
     A11yModule,
+    //ClarityModule,
+    //ClrIconModule,
   ],
   exports: [
     UserTimelineComponent
