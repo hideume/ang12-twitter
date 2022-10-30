@@ -14,3 +14,10 @@
   flex-direction: column; //ここはフッターを制御したい
   border-radius: 5px;
 }
+
+.card2 {
+  display: flex;
+  flex-direction: column; //ここはフッターを制御したい
+  justify-content: space-between;
+  height: 100%;
+}
