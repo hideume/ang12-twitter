@@ -6,9 +6,9 @@
   }
 
 .mat-elevation-z5 {                   //ここはcard単位
-  margin: 8px;    
+  margin: 10px;    
   padding: 5px;
-    width: 48%;
+    width: calc(50% - 20px);
   //  height: 100%; //これを設定するとカードの高さがそろっていないというのがわかる
   display: flex;
   flex-direction: column; //ここはフッターを制御したい

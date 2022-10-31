@@ -28,7 +28,7 @@
   <div class="card-img" *ngIf="hasMovie(tweet)">
     <!--  ここのmediaflgは変数を変更して、clr-modalをopenさせるというコード-->
       <img [src]="tweet.entities?.media[0].media_url_https" (click)="openDialogWithTemplateRef(myDialog)" />
-      videoあり+{{tweet.id_str}}
+      videoあり
       <!-- <img [src]="tweet.entities?.media[0].expanded_url" (click)="media = true" /> -->
   </div>
   <div class="card-img" *ngIf="!hasMovie(tweet)&&hasPhoto(tweet)">
@@ -71,6 +71,7 @@
       <!-- ここのimgは複数存在し、style.displayで表示、非表示を制御 -->
       <img  #imgtags *ngFor="let ig of tweet.extended_entities.media;first as fst" [src]="ig.media_url_https" [style.display]="fst?'block':'none'" height="500" class="eximg">
       <div style="text-align: center;" *ngIf="hasPhoto2(tweet)" >
+        <span>{{tweet.extended_entities.media.length}}&nbsp;</span>
         <button mat-icon-button (click)="imagemv(0,tweet)">
           <!-- <clr-icon shape="rewind"></clr-icon> -->
           <mat-icon size="10px" style="vertical-align: middle;display:inline-flex">chevron_left</mat-icon>

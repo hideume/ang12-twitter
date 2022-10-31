@@ -21,9 +21,9 @@
 :root {
   --cds-global-base: 20;
 }
-
+/*  font-family: sans-serif;*/
 html {
-  font-family: sans-serif;
+  font-family: "Meirio UI";
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
