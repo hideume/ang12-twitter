@@ -29,6 +29,7 @@ export class TweetComponent implements OnInit {
 
   mediaflg:boolean;
   actionflg:boolean = false;
+  public imgNo = 1;
 
   constructor(
     //public viewContainerRef: ViewContainerRef,
@@ -100,9 +101,11 @@ export class TweetComponent implements OnInit {
     if(norp==1){
      //nextの場合、次をblockとする。
       setno = Math.min(setno + 1,this.imgs.length - 1);
+      this.imgNo = setno+1;
     }else{
       //backの場合、前をblockとする。
       setno = Math.max(setno-1,0)
+      this.imgNo = setno+1;
     }
     this.imgs.forEach(im =>{
       if(i==setno){
