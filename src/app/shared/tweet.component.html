@@ -10,14 +10,14 @@
   <div class="card-header-actions" style="font-size: small;">
     <!-- ここは「いいね」のtooltipの定義 -->
     <a role="tooltip" aria-haspopup="true" class="tooltip tooltip-xs">
-      <img src="../../assets/img/hart.png" style="width:14px;" (click)="toggleAction('favorite')"/>
+      <img src="../../assets/img/hart.png" style="width:14px;" (click)="toggleAction('favorite',actionDialog)"/>
       <span class="tooltip-content">favo</span>
     </a>
     <!-- {{の1つの空白は表示のため -->
     <span> {{tweet.favorite_count}} </span>
     <!-- ここは「retweet」のtooltipの定義 -->
     <a role="tooltip" aria-haspopup="true" class="tooltip tooltip-xs">
-        <img src="../../assets/img/re3.png" (click)="toggleAction('retweet')"/>
+        <img src="../../assets/img/re3.png" (click)="toggleAction('retweet',actionDialog)"/>
        <span class="tooltip-content">retweet</span>
     </a>
     <!--reteet数をクリックしたらグラフに移動    {{の1つの空白は表示のため-->
@@ -110,7 +110,7 @@
     <p>actionを受け付けました</p>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-primary" (click)="actionflg = false">Ok</button>
+    <button type="button" class="btn btn-primary"  [mat-dialog-close]="true" >Ok</button>
   </div>
 </mat-dialog-action>
 <!-- </clr-modal> -->

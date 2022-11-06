@@ -1,4 +1,6 @@
 import { Component , OnInit, ViewChild , ElementRef} from '@angular/core';
+import { MatSnackBar,
+  MatSnackBarHorizontalPosition,MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { TwitterService } from './twitter.service';
 import { TweetService } from './shared/tweet.service';
 import { Router } from '@angular/router'
@@ -14,9 +16,12 @@ export class AppComponent implements OnInit {
   // login selfuser
   user;
   aptwsv;
+  hPosition:MatSnackBarHorizontalPosition = "right";
+  vPosition:MatSnackBarVerticalPosition = "top";
 
   constructor(private twitter: TwitterService,private router:Router,
-    private twsv:TweetService //これを指定しておかないとリロードする。
+    private twsv:TweetService, //これを指定しておかないとリロードする。
+    private _snackbar:MatSnackBar
     ) {
       this.aptwsv=twsv;
     }
@@ -37,7 +42,11 @@ export class AppComponent implements OnInit {
     var msg = this.in1.nativeElement.value;
     this.twitter.tweet(msg)
     .subscribe(d=>{console.log("tweet ok");
-    this.in1.nativeElement.value = "";
+      this.in1.nativeElement.value = "";
+      this._snackbar.open('msg','tweetしました',
+      {horizontalPosition:this.hPosition,
+        verticalPosition:this.vPosition,
+        duration:3000})
     },e=>{console.log("tweet error")});
   }
 }

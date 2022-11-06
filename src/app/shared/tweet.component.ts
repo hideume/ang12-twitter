@@ -82,9 +82,9 @@ export class TweetComponent implements OnInit {
   }
 
   //retwetを操作させるとここにくる
-  toggleAction(property: 'favorite'|'retweet') {
+  toggleAction(property: 'favorite'|'retweet',ref:TemplateRef<any>) {
     //this.action.emit({property, tweet: this.tweet});
-    this.action2(property,this.tweet);
+    this.action2(property,this.tweet,ref);
   }
 
   TWstatus(msg: any){
@@ -141,7 +141,7 @@ export class TweetComponent implements OnInit {
   }
 
   //tweets.componentから移植したが・・toggleActionでいいのか？
-  action2(action,tweet:Tweet) {
+  action2(action,tweet:Tweet,ref:TemplateRef<any>) {
     //if (this.inflight) {
     //  return;
     //}
@@ -159,7 +159,7 @@ export class TweetComponent implements OnInit {
       //this.actionflg = true;
 
       //以下みたいにしたいんだが、TemplateRefを参照しないといかんなあ
-      //openDialogWithTemplateRef("actionDialog");
+      this.openDialogWithTemplateRef(ref);
     },error => {console.log("action error"+error)}
     );
   }
