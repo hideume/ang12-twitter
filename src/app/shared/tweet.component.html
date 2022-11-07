@@ -68,8 +68,8 @@
   <button mat-icon-button class="close-button" [mat-dialog-close]="true" >
     <mat-icon class="close-icon" color="warn">close</mat-icon>
   </button>
-  <h3 mat-dialog-title><img [src]="tweet.user.profile_image_url_https" class="avatar" /> {{tweet.user.name}} (@{{tweet.user.screen_name}})
-    <span *ngIf="retweet" >
+  <h3 mat-dialog-title style="font-size: small;"><img [src]="tweet.user.profile_image_url_https" class="avatar" /> {{tweet.user.name}} (@{{tweet.user.screen_name}})
+    <span *ngIf="retweet" style="font-size: small;">
       <!-- <clr-icon shape="sync"></clr-icon>  -->
       <mat-icon>sync</mat-icon>
       Retweeted by {{retweet.user.name}}</span>

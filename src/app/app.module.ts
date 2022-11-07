@@ -10,6 +10,7 @@ import {MatButtonModule} from '@angular/material/button'
 import {MatToolbarModule} from '@angular/material/toolbar'
 import {MatDialogModule} from '@angular/material/dialog'
 import {MatTableModule} from '@angular/material/table'
+import {MatInput, MatInputModule} from '@angular/material/input'
 import {MatSnackBarModule} from '@angular/material/snack-bar'
 import {A11yModule} from '@angular/cdk/a11y'
 
@@ -65,6 +66,7 @@ import { RouterModule } from '@angular/router';
     MatToolbarModule,
     MatDialogModule,
     MatTableModule,
+    MatInputModule,
     MatSnackBarModule,
     A11yModule,
     //ClarityModule,
