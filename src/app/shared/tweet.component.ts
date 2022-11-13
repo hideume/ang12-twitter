@@ -30,6 +30,7 @@ export class TweetComponent implements OnInit {
   mediaflg:boolean;
   actionflg:boolean = false;
   public imgNo = 1;
+  public c_newState:string;
 
   constructor(
     //public viewContainerRef: ViewContainerRef,
@@ -145,11 +146,9 @@ export class TweetComponent implements OnInit {
 
   //tweets.componentから移植したが・・toggleActionでいいのか？
   action2(action,tweet:Tweet,ref:TemplateRef<any>) {
-    //if (this.inflight) {
-    //  return;
-    //}
 
     const stateKey = action.property === 'favorite' ? 'favorited' : 'retweeted';
+    this.c_newState = action.property;
     //const newState = !action.tweet[stateKey];
     //これはreteetをトグルしないといけないのだがとりあえずtrueにする
     const newState = true;
