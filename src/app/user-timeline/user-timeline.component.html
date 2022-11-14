@@ -5,9 +5,9 @@
       <div class="card" style="width:48%;margin: 5px;padding: 5px;">
       <!-- tweetsでは actionが有効になっているのだが、user-timelineはまだできていないので省略 -->
       <!--app-tweet *ngIf="!tweet.retweeted_status" [tweet]="tweet" (action)="action($event, i)"></app-tweet -->
-      <app-tweet class="card2" *ngIf="!tweet.retweeted_status" [tweet]="tweet" ></app-tweet>
+      <app-tweet class="card2" *ngIf="!tweet.retweeted_status" [tweet]="tweet" [count]="i"></app-tweet>
       <!--app-tweet *ngIf="tweet.retweeted_status" [retweet]="tweet" [tweet]="tweet.retweeted_status" (action)="action($event, i)"></app-tweet-->
-      <app-tweet class="card2" *ngIf="tweet.retweeted_status" [retweet]="tweet" [tweet]="tweet.retweeted_status"></app-tweet>
+      <app-tweet class="card2" *ngIf="tweet.retweeted_status" [retweet]="tweet" [tweet]="tweet.retweeted_status" [count]="i"></app-tweet>
     </div>
     </ng-container>
   </div>

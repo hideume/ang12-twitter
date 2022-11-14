@@ -30,7 +30,8 @@
 
 <div  class="card-block">
   <p class="card-text" [innerHTML]="tweet | tweet "></p>
-  <div class="card-img" *ngIf="hasMovie(tweet)">
+    <!-- <youtube-player *ngIf="hasYoutube(tweet)" videoId="getVid(tweet)"></youtube-player> -->
+    <div class="card-img" *ngIf="hasMovie(tweet)">
     <!--  ここのmediaflgは変数を変更して、clr-modalをopenさせるというコード-->
       <img [src]="tweet.entities?.media[0].media_url_https" (click)="openDialogWithTemplateRef(myDialog)" />
       videoあり

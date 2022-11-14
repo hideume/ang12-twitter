@@ -5,7 +5,9 @@ import { Component , Input ,Output,OnInit,ViewChildren,
 import { Tweet } from './tweet';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog'
+// import { YouTubePlayer } from '@angular/youtube-player'
 import { TwitterService } from '../twitter.service';
+import { CloseScrollStrategy } from '@angular/cdk/overlay';
 //import { TwgetComponent } from './twget/twget.component';
 //import { ComponentFactory, ComponentFactoryResolver,ViewContainerRef } from '@angular/core';
 //import { animate } from '@angular/animations';
@@ -164,5 +166,25 @@ export class TweetComponent implements OnInit {
       this.openDialogWithTemplateRef(ref);
     },error => {console.log("action error"+error)}
     );
+  }
+  getVid(tweet:Tweet):string {
+    if(tweet.entities.urls.length==0)return null; 
+    let m= tweet.entities.urls[0].display_url.match('youtu.be/(.+)');
+    if(m!=null){
+      console.log("hit="+m[1]);
+      return m[1]
+    }else{
+      return null;
+    }
+  }
+  hasYoutube(tweet:Tweet):boolean{
+    if(tweet.entities.urls.length==0)return false; 
+    let m= tweet.entities.urls[0].display_url.match('youtu.be');
+    if(m!=null){
+      //console.log("has youtube.")
+      return true;
+    }else{
+      return false;
+    }
   }
 }

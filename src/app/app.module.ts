@@ -13,6 +13,7 @@ import {MatTableModule} from '@angular/material/table'
 import {MatInput, MatInputModule} from '@angular/material/input'
 import {MatSnackBarModule} from '@angular/material/snack-bar'
 import {A11yModule} from '@angular/cdk/a11y'
+import {YouTubePlayerModule} from '@angular/youtube-player'
 
 //import { MomentModule } from 'angular2-moment';
 import { MomentModule } from 'ngx-moment';
@@ -69,6 +70,7 @@ import { RouterModule } from '@angular/router';
     MatInputModule,
     MatSnackBarModule,
     A11yModule,
+    YouTubePlayerModule,
     //ClarityModule,
     //ClrIconModule,
   ],
