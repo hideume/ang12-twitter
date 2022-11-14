@@ -24,6 +24,7 @@
     "@angular/platform-browser": "^14.2.9",
     "@angular/platform-browser-dynamic": "^14.2.9",
     "@angular/router": "^14.2.9",
+    "@angular/youtube-player": "^14.2.7",
     "@types/twitter": "^1.7.0",
     "@webcomponents/custom-elements": "^1.5.0",
     "@webcomponents/webcomponentsjs": "^2.6.0",
