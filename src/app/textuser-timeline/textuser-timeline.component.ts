@@ -1,18 +1,17 @@
-import { Component ,OnInit} from '@angular/core'
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
-//import { TwitterService } from '../twitterservice.service'
+
 import { TwitterService } from '../twitter.service';
 import { Tweet } from '../shared/tweet';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user-timeline.component.html',
-  styleUrls: ['./user-timeline.component.scss'],
- })
-
-export class UserTimelineComponent implements OnInit{
+  selector: 'app-textuser-timeline',
+  templateUrl: './textuser-timeline.component.html',
+  styleUrls: ['./textuser-timeline.component.scss']
+})
+export class TextuserTimelineComponent implements OnInit {
 
   myData:Tweet[] =[];
   ids = [];
@@ -57,5 +56,5 @@ export class UserTimelineComponent implements OnInit{
   
     }
   
-    
-  }
+
+}

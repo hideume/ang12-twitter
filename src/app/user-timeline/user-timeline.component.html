@@ -1,5 +1,6 @@
 <div *ngIf="undefined === myData">Loading...</div>
 <div *ngIf="undefined !== myData" >
+  <a routerLink="/textuser-timeline/{{s_name}}">to text user timeline</a>
   <div  style="display:flex;flex-flow: row wrap;width: 100%">   
     <ng-container *ngFor="let tweet of myData; let i = index" >
       <div class="card" style="width:48%;margin: 5px;padding: 5px;">

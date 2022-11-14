@@ -9,6 +9,7 @@ import { RetweetGraphComponent } from './retweetgraph/retweetgraph.component';
 import { SearchComponent } from './search/search.component';
 import { TestComponent } from './test/test.component';
 import { TrendComponent } from './trend/trend.component';
+import { TextuserTimelineComponent } from './textuser-timeline/textuser-timeline.component';
 
 //const routes: Routes = [];
 
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'search/:query',component: SearchComponent,pathMatch:'full'},
   {path: 'test',component: TestComponent},
   {path: 'trend',component: TrendComponent},
+  {path: 'textuser-timeline/:screen_name',component: TextuserTimelineComponent},
 ];
 
 @NgModule({

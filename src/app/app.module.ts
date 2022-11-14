@@ -37,6 +37,7 @@ import { TestComponent } from './test/test.component';
 import { TwgetComponent } from './shared/twget/twget.component';
 import { TrendComponent } from './trend/trend.component';
 import { RouterModule } from '@angular/router';
+import { TextuserTimelineComponent } from './textuser-timeline/textuser-timeline.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { RouterModule } from '@angular/router';
     SearchComponent,
     TestComponent,
     TwgetComponent,
-    TrendComponent
+    TrendComponent,
+    TextuserTimelineComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,18 @@
+<div>textuser-timeline</div>
+<a routerLink="/userhome/{{s_name}}"> to user-timeline</a>
+<!--div *ngFor="">{{pp.name}}</div-->
+<table class="table">
+<!-- <table  style="width:95%;padding:10px;"> -->
+ <thead class="header-row">
+    <th>No</th>
+    <th style="width:160px">time</th>
+    <th>text</th>
+ </thead>
+ <tbody>
+ <tr *ngFor="let pp of myData;let i = index">
+     <td>{{i}}</td>
+    <td>{{pp.created_at | date:"yy/MM/dd HH:mm:ss"}}</td>
+    <td style="text-align:left">{{pp.text}}</td>
+ </tr>
+</tbody>
+</table>
