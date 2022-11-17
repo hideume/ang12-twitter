@@ -21,7 +21,7 @@ export class TweetPipe implements PipeTransform {
     // Replace screen names with links
     if (tweet.entities.user_mentions) {
       tweet.entities.user_mentions.forEach(mention => {
-        text = text.replace(new RegExp(`@${mention.screen_name}`, 'gi'), `<a href="https://twitter.com/${mention.screen_name}" target="_blank">@${mention.screen_name}</a>`);
+        text = text.replace(new RegExp(`@${mention.screen_name}`, 'gi'), `<a href="/userhome/${mention.screen_name}" >@${mention.screen_name}</a>`);
       });
     }
 
