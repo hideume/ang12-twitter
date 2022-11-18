@@ -22,7 +22,10 @@ export class SearchComponent implements OnInit {
       // パラメータが変わった後の初期化処理
       this.twitter.search(encodeURI(q))
       .subscribe(dt=>{
+        //v1の場合
         this.tweets = dt.data.statuses;
+        //v2の場合
+        //this.tweets = dt.data;
       },error=>{
         console.log("search error"+error);
         this.tweets = [];
