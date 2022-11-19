@@ -9,6 +9,18 @@ import { ActivatedRoute } from '@angular/router';
 export class SearchComponent implements OnInit {
 
   tweets;
+  includes;
+  usernames = [];
+
+
+  public getUsername(authorid) {
+    for (const  us of this.includes.users) {
+      //console.log(us.id+" "+authorid);
+      if(us.id==authorid){
+        return [us.username,us.name];
+      }
+    };
+  };
 
   constructor(private twitter:TwitterService,private route:ActivatedRoute
     ) { }
@@ -23,9 +35,15 @@ export class SearchComponent implements OnInit {
       this.twitter.search(encodeURI(q))
       .subscribe(dt=>{
         //v1の場合
-        this.tweets = dt.data.statuses;
+        //this.tweets = dt.data.statuses;
         //v2の場合
-        //this.tweets = dt.data;
+        this.tweets = dt.data;
+        this.includes = dt.includes;
+        for (const tw of this.tweets) {
+          let nm = this.getUsername(tw.author_id);
+          //console.log(nm);
+          this.usernames.push(nm);
+        };
       },error=>{
         console.log("search error"+error);
         this.tweets = [];
@@ -45,6 +63,7 @@ export class SearchComponent implements OnInit {
   public ngDestory() {
     this.tweets = [];
   }
+
 
 
 }

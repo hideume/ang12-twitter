@@ -11,7 +11,7 @@ const client = new Twitter({
 });
 
 const client2 = new Tw2({
-  bearer_token: 'AAAAAAAAAAAAAAAAAAAAAE%2BCWwEAAAAAsPWIFOfAB6Hqmcb2XZ0ruGnnmUc%3D5d6MDTZNhvCzvQat11LVZvB8wvBGcSl5irrU9nt510zN6mMxdy'
+  bearer_token: process.env.Twitter_bearer_token
 });
 
 app.use(require('cors')());
@@ -79,23 +79,25 @@ app.get('/api/search', (req, res) => {
       .get('search/tweets',params)
       .then(tres => {
         //console.log(tres);
-        res.send(tres);
+        //res.send(tres);
       })
       .catch(error => {
         //console.log(error);
         res.send(error);
       });
       //ここからtwitter api v2を使用する
-      const para2 ={query: req.query.query,
+      const para2 ={query: req.query.query + ' -is:retweet',
         "tweet.fields":["created_at","author_id","entities"],
         "user.fields":["name","username","url","description","profile_image_url"],
-        "expansions":["author_id"]}
+        "expansions":["author_id"],
+        max_results:100
+      }
       client2.get('tweets/search/recent',para2)
       .then(res2 => {
-        console.log(res2.data);
-        console.log(res2.includes);
+        //console.log(res2.data);
+        //console.log(res2.includes);
         //console.log("user1="+res2.includes.users[1]);
-        //res.send(res2);
+        res.send(res2);
       });
   }else{
     //#の検索

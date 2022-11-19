@@ -1,13 +1,19 @@
-<div *ngIf="undefined === tweets">Loading...</div>
-<div *ngIf="undefined !== tweets" >
-  <div  style="display:flex;flex-flow: row wrap;width: 100%">   
-    <ng-container *ngFor="let tweet of tweets; let i = index" >
-      <div class="card" style="width:48%;margin: 5px;padding: 5px;">
-      <!--app-tweet *ngIf="!tweet.retweeted_status" [tweet]="tweet" (action)="action($event, i)"></app-tweet-->
-      <app-tweet class="card2" *ngIf="!tweet.retweeted_status" [tweet]="tweet" ></app-tweet>
-      <!--app-tweet *ngIf="tweet.retweeted_status" [retweet]="tweet" [tweet]="tweet.retweeted_status" (action)="action($event, i)"></app-tweet-->
-      <app-tweet class="card2" *ngIf="tweet.retweeted_status" [retweet]="tweet" [tweet]="tweet.retweeted_status" ></app-tweet>
-    </div>
-    </ng-container>
-  </div>
-</div>
+<div>search</div>
+<!--div *ngFor="">{{pp.name}}</div-->
+<table class="table">
+<!-- <table  style="width:95%;padding:10px;"> -->
+        <thead class="header-row">
+        <th>No</th>
+        <th style="width:130px">date</th>
+        <th  style="width:80px">name</th>
+        <th>text</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let tw of tweets;let i = index">
+        <td>{{i}}</td>
+        <td>{{tw.created_at | date:"yy/MM/dd HH:mm:ss"}}</td>
+        <td><a href="/userhome/{{usernames[i][0]}}">{{usernames[i][1]}}</a></td>
+        <td style="text-align:left">{{tw.text}}</td>
+    </tr>
+</tbody>
+</table>

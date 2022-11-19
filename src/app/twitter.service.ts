@@ -8,6 +8,7 @@ import { environment } from '../environments/environment';
 
 export interface TwitterResponse {
   data: any;
+  includes: any;
   resp: any;
 }
 
