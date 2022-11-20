@@ -12,7 +12,7 @@
  <tr *ngFor="let pp of myData;let i = index">
      <td>{{i}}</td>
     <td>{{pp.created_at | date:"yy/MM/dd HH:mm:ss"}}</td>
-    <td style="text-align:left">{{pp.text}}</td>
+    <td style="text-align:left" [innerHtml]="pp.text | Symple"></td>
  </tr>
 </tbody>
 </table>

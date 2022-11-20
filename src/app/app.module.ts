@@ -24,6 +24,7 @@ import { TweetComponent } from './shared/tweet.component';
 import { QuoteComponent } from './quote/quote.component';
 import { TweetsComponent } from './tweets/tweets.component';
 import { TweetPipe } from './shared/tweet.pipe';
+import { SimplePipe } from './shared/simple.pipe';
 import { LimitComponent } from './limit/limit.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UserTimelineComponent } from './user-timeline/user-timeline.component';
@@ -46,6 +47,7 @@ import { TextuserTimelineComponent } from './textuser-timeline/textuser-timeline
     QuoteComponent,
     TweetsComponent,
     TweetPipe,
+    SimplePipe,
     LimitComponent,
     UserTimelineComponent,
     UserComponent,
