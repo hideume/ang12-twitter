@@ -1,6 +1,8 @@
 const express = require('express');
 const Twitter = require('twit');
-const Tw2 = require('twitter-v2')
+//const Tw2 = require('twitter-v2')
+const Tw2 = require('twitter-api-sdk')
+
 
 const app = express();
 const client = new Twitter({
@@ -10,9 +12,7 @@ const client = new Twitter({
   access_token_secret: process.env.Twitter_ACCESS_TOKEN_SECRET
 });
 
-const client2 = new Tw2({
-  bearer_token: process.env.Twitter_bearer_token
-});
+const client2 = new Tw2.Client(process.env.Twitter_bearer_token);
 
 app.use(require('cors')());
 app.use(require('body-parser').json());
@@ -92,7 +92,8 @@ app.get('/api/search', (req, res) => {
         "expansions":["author_id"],
         max_results:100
       }
-      client2.get('tweets/search/recent',para2)
+      //client2.get('tweets/search/recent',para2)
+      client2.tweets.tweetsRecentSearch(para2)
       .then(res2 => {
         //console.log(res2.data);
         //console.log(res2.includes);
@@ -138,7 +139,7 @@ app.get('/api/home', (req, res) => {
 });
 
 app.get('/api/userhome', (req, res) => {
-    const params = { screen_name: req.query.screen_name };
+    const params = { screen_name: req.query.screen_name,count:100 };
     //const params = { screen_name: "hawaii_hahaha" };
     client
       .get(`statuses/user_timeline`, params)

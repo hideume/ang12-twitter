@@ -17,9 +17,14 @@ export class TweetsComponent implements OnInit  {
   constructor(private tweetserv:TweetService,private twitter:TwitterService) {}
 
   ngOnInit() {
-    this.tweets = this.tweetserv.getTweets();
+    if(this.tweetserv.tweets.length == 0){
+      this.tweets = this.tweetserv.getTweets();
+    }else{
+      this.tweets = this.tweetserv.tweets;
+    }
   }
 
+  //ここでkeyによる操作が可能のようにしている。
   @HostListener('window:Keydown',['$event'])
   OnKeydown(event: KeyboardEvent) {
     console.log(event);

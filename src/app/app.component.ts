@@ -1,4 +1,4 @@
-import { Component , OnInit, ViewChild , ElementRef} from '@angular/core';
+import { Component , OnInit, ViewChild , ElementRef , HostListener} from '@angular/core';
 import { MatSnackBar,
   MatSnackBarHorizontalPosition,MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { TwitterService } from './twitter.service';
@@ -49,4 +49,17 @@ export class AppComponent implements OnInit {
         duration:3000})
     },e=>{console.log("tweet error")});
   }
+
+  @HostListener('window:Keydown',['$event'])
+  OnKeydown(event: KeyboardEvent) {
+    console.log(event);
+    if(event.key==="Enter"){
+      console.log("only enter press")
+    }
+    if(event.key==="Enter" && event.ctrlKey ){
+      console.log("cntl enter press")
+      //this.tweet();
+    }
+  }
+
 }

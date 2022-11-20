@@ -62,6 +62,8 @@ export class SearchComponent implements OnInit {
 
   public ngDestory() {
     this.tweets = [];
+    this.includes = [];
+    this.usernames = [];
   }
 
 

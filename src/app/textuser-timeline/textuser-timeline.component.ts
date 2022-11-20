@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { TwitterService } from '../twitter.service';
 import { Tweet } from '../shared/tweet';
 import { ActivatedRoute } from '@angular/router';
+import { text } from 'body-parser';
 
 @Component({
   selector: 'app-textuser-timeline',
@@ -17,6 +18,8 @@ export class TextuserTimelineComponent implements OnInit {
   ids = [];
   api_url = 'http://localhost:3000';
   s_name;
+  re_counter;
+  re_percent;
     
     constructor(private http: HttpClient,
       private twitter: TwitterService,
@@ -25,6 +28,7 @@ export class TextuserTimelineComponent implements OnInit {
     ngOnInit() {
       var name = this.route.snapshot.paramMap.get('screen_name');
       this.s_name = name;
+      this.re_counter = 0;
       this.twitter.userhome(name)
         .subscribe(tweets => 
         {
@@ -37,8 +41,11 @@ export class TextuserTimelineComponent implements OnInit {
             // stack id_str,& tweet
               this.ids.push(tweet.id_str);
               this.myData.unshift(tweet);
+              let text2:String = tweet.text;
+              if(text2.substring(0,2)=="RT")this.re_counter++;
             }
           })
+          this.re_percent = (this.re_counter/this.myData.length*100).toFixed(1);
           
         })
     }
