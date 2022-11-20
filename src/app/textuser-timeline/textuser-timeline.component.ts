@@ -20,6 +20,7 @@ export class TextuserTimelineComponent implements OnInit {
   s_name;
   re_counter;
   re_percent;
+  compStyle;
     
     constructor(private http: HttpClient,
       private twitter: TwitterService,
@@ -45,8 +46,13 @@ export class TextuserTimelineComponent implements OnInit {
               if(text2.substring(0,2)=="RT")this.re_counter++;
             }
           })
-          this.re_percent = (this.re_counter/this.myData.length*100).toFixed(1);
-          
+          this.re_percent = (this.re_counter/this.myData.length*100);
+          if(this.re_percent >= 60){
+            this.compStyle = {'color':'red'};
+          }else{
+            this.compStyle = {'color':'black'};
+          }
+          this.re_percent = this.re_percent.toFixed(1);
         })
     }
 
