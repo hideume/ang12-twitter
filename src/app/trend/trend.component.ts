@@ -30,7 +30,7 @@ export class TrendComponent implements OnInit {
     if(arg[0]=="#"){
       arg=arg.replace("#","#");
     }
-    return "search/"+arg;
+    return "/search/"+arg;
   }
 
 }

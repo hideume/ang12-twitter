@@ -1,6 +1,7 @@
 import { Component, OnInit, OnChanges, OnDestroy } from '@angular/core';
 import { TwitterService } from '../twitter.service';
 import { ActivatedRoute } from '@angular/router';
+import { TweetService } from '../shared/tweet.service';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -12,6 +13,13 @@ export class SearchComponent implements OnInit {
   includes;
   usernames = [];
 
+  constructor(private twitter:TwitterService,
+    private twitterServ:TweetService,  //これ入れとかないと初期化してしまう？
+    private route:ActivatedRoute
+    ) { 
+      console.log("search const tws="+twitterServ.tweets.length);
+    }
+
 
   public getUsername(authorid) {
     for (const  us of this.includes.users) {
@@ -22,9 +30,7 @@ export class SearchComponent implements OnInit {
     };
   };
 
-  constructor(private twitter:TwitterService,private route:ActivatedRoute
-    ) { }
-
+  
   ngOnInit() {
     console.log("search oninit---");
     this.tweets = [];

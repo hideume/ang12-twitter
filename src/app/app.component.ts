@@ -40,6 +40,7 @@ export class AppComponent implements OnInit {
 
   tweet() {
     var msg = this.in1.nativeElement.value;
+    console.log(msg);
     this.twitter.tweet(msg)
     .subscribe(d=>{console.log("tweet ok");
       this.in1.nativeElement.value = "";
@@ -58,7 +59,7 @@ export class AppComponent implements OnInit {
     }
     if(event.key==="Enter" && event.ctrlKey ){
       console.log("cntl enter press")
-      //this.tweet();
+      this.tweet();
     }
   }
 

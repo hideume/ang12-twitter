@@ -17,7 +17,10 @@ export interface stmsg {
 }
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
+
 export class TwitterService {
   
 

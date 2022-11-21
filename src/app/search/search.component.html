@@ -13,7 +13,7 @@
         <td>{{i}}</td>
         <td>{{tw.created_at | date:"yy/MM/dd HH:mm:ss"}}</td>
         <td><a href="/userhome/{{usernames[i][0]}}">{{usernames[i][1]}}</a></td>
-        <td style="text-align:left">{{tw.text}}</td>
+        <td style="text-align:left" [innerHtml]="tw.text | Symple"></td>
     </tr>
 </tbody>
 </table>
