@@ -30,7 +30,7 @@ export class TweetPipe implements PipeTransform {
     //text = text.replace(new RegExp('#(\\S+)([\\s|$])', 'gi'),'<a  [routerLink]="search/$1" routerLinkActive="active">#$1$2</a>');
     //text = text.replace(new RegExp('#(\\S+)([\\s|$])', 'gi'),'<a  routerLink="/search/\$1" [routerLinkActive]="is-active">#\$1\$2</a>');
     //text = text.replace(new RegExp('#(\\S+)([\\s|$])', 'gi'),'<a  [routerLink]="[\'/search/\$1\']" routerLinkActive="active fulffy">#\$1\$2</a>');
-    text = text.replace(new RegExp('#(\\S+)([\\s|$])', 'gi'),`<a  href="search/\$1" >#\$1\$2</a>`);
+    text = text.replace(new RegExp('#(\\S+)([\\s|$])', 'gi'),`<a  href="/search/\$1" >#\$1\$2</a>`);
 
 
     // Replace links with clickable links

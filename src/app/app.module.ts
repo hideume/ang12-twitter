@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule ,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 //import { ClarityModule, ClrIconModule } from '@clr/angular';
@@ -66,6 +67,7 @@ import { TextuserTimelineComponent } from './textuser-timeline/textuser-timeline
     MomentModule,
     AppRoutingModule,
     RouterModule ,
+    FormsModule,
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,

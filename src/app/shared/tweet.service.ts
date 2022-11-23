@@ -14,6 +14,7 @@ tweets: Tweet[]=[];
 ids=[] ;
 timer;
 since = '';
+inputData;
 
 constructor(private twitter: TwitterService) {
     console.log("-----TweetService constract");

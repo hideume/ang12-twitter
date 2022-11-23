@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   // login selfuser
   user;
   aptwsv;
+  inputValue="";
   hPosition:MatSnackBarHorizontalPosition = "right";
   vPosition:MatSnackBarVerticalPosition = "top";
 
@@ -36,6 +37,7 @@ export class AppComponent implements OnInit {
     //console.log("clicked"+this.in1.nativeElement.value);
     //this.router.navigate(['/']);
     this.router.navigate(['/search',this.in1.nativeElement.value]);
+    this.in1.nativeElement.value="";
   }
 
   tweet() {
@@ -53,14 +55,21 @@ export class AppComponent implements OnInit {
 
   @HostListener('window:Keydown',['$event'])
   OnKeydown(event: KeyboardEvent) {
-    console.log(event);
-    if(event.key==="Enter"){
-      console.log("only enter press")
+    //console.log(event);
+    if(event.key==="Enter" && event.shiftKey){
+      console.log("shift enter press");
+      this.search();
     }
     if(event.key==="Enter" && event.ctrlKey ){
       console.log("cntl enter press")
       this.tweet();
     }
+  }
+
+  //入力値をservice経由でretweetできるようにする
+  inputChange(arg){
+    //console.log(arg);
+    this.twsv.inputData = arg;
   }
 
 }

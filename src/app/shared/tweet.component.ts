@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog'
 // import { YouTubePlayer } from '@angular/youtube-player'
 import { TwitterService } from '../twitter.service';
+import { TweetService } from './tweet.service';
 import { CloseScrollStrategy } from '@angular/cdk/overlay';
 //import { TwgetComponent } from './twget/twget.component';
 //import { ComponentFactory, ComponentFactoryResolver,ViewContainerRef } from '@angular/core';
@@ -39,6 +40,7 @@ export class TweetComponent implements OnInit {
     //private resolver: ComponentFactoryResolver
     private route:Router, //routerLinkのために必要だと思っているのだが・・
     private twitter:TwitterService,
+    private twsv:TweetService,
     private dialog: MatDialog
   ){
     //this.mediaurl = "tweet.entities?.media[0].media_url_https";
@@ -154,19 +156,34 @@ export class TweetComponent implements OnInit {
     //const newState = !action.tweet[stateKey];
     //これはreteetをトグルしないといけないのだがとりあえずtrueにする
     const newState = true;
-
+    console.log("input data="+this.twsv.inputData);
     //this.inflight = true;
-    this.twitter.action(action, tweet.id_str, newState).subscribe(tweet2 => {
-      tweet2[stateKey] = newState;
-      tweet2[action + '_count'] += newState ? 1 : -1;
-      //結果をモーダルボックスに表示
-      //this.actionflg = true;
+    //imputboxの内容があったらコメント付にする
+    if(this.twsv.inputData==""){
+      this.twitter.action(action, tweet.id_str, newState)
+        .subscribe(tweet2 => {
+          tweet2[stateKey] = newState;
+          tweet2[action + '_count'] += newState ? 1 : -1;
+          //結果をモーダルボックスに表示
+          //this.actionflg = true;
 
-      //以下みたいにしたいんだが、TemplateRefを参照しないといかんなあ
+          //以下みたいにしたいんだが、TemplateRefを参照しないといかんなあ
+          this.openDialogWithTemplateRef(ref);
+          },error => {console.log("action error"+error)}
+        );
+    }else{
+      //こっちはコメント付retweet
+      let twurl="https://twitter.com"
+      let retweeturl = twurl+"/"+tweet.user.screen_name+"/status/"+tweet.id_str
+      let msg = this.twsv.inputData+retweeturl
+      console.log(msg);
+      this.twitter.tweet(msg)
+      .subscribe(d=>{console.log("retweet ok");
       this.openDialogWithTemplateRef(ref);
-    },error => {console.log("action error"+error)}
-    );
+      },e=>{console.log("tweet error")});
+    }
   }
+
   getVid(tweet:Tweet):string {
     if(tweet.entities.urls.length==0)return null; 
     let m= tweet.entities.urls[0].display_url.match('youtu.be/(.+)');
