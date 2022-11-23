@@ -1,6 +1,6 @@
 <div id="clr-main-container" (window:keydown)=OnKeydown($event)>
   <!-- <clr-header class="header-4"> -->
-  <mat-toolbar  color="primary">
+  <mat-toolbar  color="primary" style="position:fixed;z-index: 999;">
       <!-- 一番左のタイトル部分-->
       <!-- <a class="nav-link"> -->
         <div style='font-size:80%;'>Simple Twitter<br>v2.0.1</div>
@@ -32,7 +32,7 @@
       </a>
   <!-- </clr-header> -->
   </mat-toolbar>
-  <div class="content-container">
+  <div class="content-container" style="padding-top: 60px;">
     <main class="content-area">
       <router-outlet></router-outlet>
       <!-- <app-tweets></app-tweets> -->

@@ -27,7 +27,7 @@ export class TweetsComponent implements OnInit  {
   //ここでkeyによる操作が可能のようにしている。
   @HostListener('window:Keydown',['$event'])
   OnKeydown(event: KeyboardEvent) {
-    console.log(event);
+    //console.log(event);
     if(event.key==="Home"){
       console.log("Home press")
     }
