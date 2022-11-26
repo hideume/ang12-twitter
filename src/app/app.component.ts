@@ -38,6 +38,7 @@ export class AppComponent implements OnInit {
     //this.router.navigate(['/']);
     this.router.navigate(['/search',this.in1.nativeElement.value]);
     this.in1.nativeElement.value="";
+    this.twsv.inputData="";
   }
 
   tweet() {
@@ -46,6 +47,7 @@ export class AppComponent implements OnInit {
     this.twitter.tweet(msg)
     .subscribe(d=>{console.log("tweet ok");
       this.in1.nativeElement.value = "";
+      this.twsv.inputData="";
       this._snackbar.open('msg','tweetしました',
       {horizontalPosition:this.hPosition,
         verticalPosition:this.vPosition,

@@ -18,6 +18,8 @@ export class TweetPipe implements PipeTransform {
     let text = this.sanitizer.sanitize(SecurityContext.NONE, tweet.full_text);
     if (!text)text = tweet.text;
 
+    text = twemoji.parse(text);
+
     // Replace screen names with links
     if (tweet.entities.user_mentions) {
       tweet.entities.user_mentions.forEach(mention => {
@@ -83,3 +85,9 @@ export class TweetPipe implements PipeTransform {
   }
 
 }
+
+declare var twemoji: {
+  convert: { fromCodePoint(str: string): string; }
+  parse(str: string, options?: { folder: string, ext: string }): string;
+};
+

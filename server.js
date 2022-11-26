@@ -86,7 +86,10 @@ app.get('/api/search', (req, res) => {
         res.send(error);
       });
       //ここからtwitter api v2を使用する
-      const para2 ={query: req.query.query + ' -is:retweet',
+      //日本語空白を空白に変換
+      let que = req.query.query.replace("　"," ");
+
+      const para2 ={query: que + ' -is:retweet',
         "tweet.fields":["created_at","author_id","entities"],
         "user.fields":["name","username","url","description","profile_image_url"],
         "expansions":["author_id"],
