@@ -25,6 +25,7 @@ export class AppComponent implements OnInit {
     private _snackbar:MatSnackBar
     ) {
       this.aptwsv=twsv;
+      //TweetServiceにinputの参照を格納
     }
 
   //初期設定で自分のuserをthis.userに設定する
@@ -38,7 +39,6 @@ export class AppComponent implements OnInit {
     //this.router.navigate(['/']);
     this.router.navigate(['/search',this.in1.nativeElement.value]);
     this.in1.nativeElement.value="";
-    this.twsv.inputData="";
   }
 
   tweet() {
@@ -47,7 +47,7 @@ export class AppComponent implements OnInit {
     this.twitter.tweet(msg)
     .subscribe(d=>{console.log("tweet ok");
       this.in1.nativeElement.value = "";
-      this.twsv.inputData="";
+     // this.twsv.inputData="";
       this._snackbar.open('msg','tweetしました',
       {horizontalPosition:this.hPosition,
         verticalPosition:this.vPosition,
@@ -71,7 +71,8 @@ export class AppComponent implements OnInit {
   //入力値をservice経由でretweetできるようにする
   inputChange(arg){
     //console.log(arg);
-    this.twsv.inputData = arg;
+    //this.twsv.inputData = arg;
+    this.twsv.HeaderInputRef = this.in1;
   }
 
 }

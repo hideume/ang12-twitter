@@ -156,11 +156,14 @@ export class TweetComponent implements OnInit {
     //const newState = !action.tweet[stateKey];
     //これはreteetをトグルしないといけないのだがとりあえずtrueにする
     const newState = true;
-    console.log("input data="+this.twsv.inputData);
+    //console.log("input data="+this.twsv.inputData);
+    console.log("HeaderInputRef="+this.twsv.HeaderInputRef.nativeElement.value);
     //this.inflight = true;
     //imputboxの内容があったらコメント付にする
-    if(this.twsv.inputData==""){
-      this.twitter.action(action, tweet.id_str, newState)
+
+    //if(this.twsv.inputData==""){
+    if(this.twsv.HeaderInputRef.nativeElement.value==""){
+        this.twitter.action(action, tweet.id_str, newState)
         .subscribe(tweet2 => {
           tweet2[stateKey] = newState;
           tweet2[action + '_count'] += newState ? 1 : -1;
@@ -175,11 +178,14 @@ export class TweetComponent implements OnInit {
       //こっちはコメント付retweet
       let twurl="https://twitter.com"
       let retweeturl = twurl+"/"+tweet.user.screen_name+"/status/"+tweet.id_str
-      let msg = this.twsv.inputData+retweeturl
+      //let msg = this.twsv.inputData+retweeturl
+      let msg = this.twsv.HeaderInputRef.nativeElement.value+retweeturl
       console.log(msg);
       this.twitter.tweet(msg)
       .subscribe(d=>{console.log("retweet ok");
-      this.openDialogWithTemplateRef(ref);
+        this.openDialogWithTemplateRef(ref);
+        this.twsv.HeaderInputRef.nativeElement.value = "";
+        //this.twsv.inputData = "";
       },e=>{console.log("tweet error")});
     }
   }

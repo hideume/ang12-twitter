@@ -1,5 +1,5 @@
 import { TwitterService } from '../twitter.service';
-import { Injectable } from '@angular/core';
+import { Injectable,ElementRef } from '@angular/core';
 import { Tweet } from './tweet';
 
 
@@ -14,7 +14,8 @@ tweets: Tweet[]=[];
 ids=[] ;
 timer;
 since = '';
-inputData;
+//inputData;
+HeaderInputRef:ElementRef<any>;
 
 constructor(private twitter: TwitterService) {
     console.log("-----TweetService constract");
