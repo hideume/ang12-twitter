@@ -15,6 +15,7 @@
     </a>
     <!-- {{の1つの空白は表示のため -->
     <span> {{tweet.favorite_count}} </span>
+
     <!-- ここは「retweet」のtooltipの定義 -->
     <a role="tooltip" aria-haspopup="true" class="tooltip tooltip-xs">
         <img src="../../assets/img/re3.png" (click)="toggleAction('retweet',actionDialog)"/>
@@ -24,7 +25,13 @@
     <a *ngIf="retweet" routerLink="/retweetg/{{tweet.id_str}}"> {{tweet.retweet_count}}</a>
     <!--reteet数の表示    -->
     <span *ngIf="!retweet" > {{tweet.retweet_count}}</span>
-  </div>
+
+    <!-- ここは返信の定義 -->
+    <a role="tooltip" aria-haspopup="true" class="tooltip tooltip-xs">
+      <mat-icon style="color:gray;vertical-align: bottom;height: 19px;" (click)="replayAction(tweet,actionDialog)">chat_bubble_online</mat-icon>
+     <span class="tooltip-content">返信</span>
+  </a>
+</div>
 </div>
 
 

@@ -190,6 +190,18 @@ export class TweetComponent implements OnInit {
     }
   }
 
+  //返信の応答
+  replayAction(tweet:Tweet,ref:TemplateRef<any>){
+    let msg = "@"+tweet.user.screen_name+this.twsv.HeaderInputRef.nativeElement.value
+    console.log(msg);
+    this.twitter.tweet(msg)
+    .subscribe(d=>{console.log("replay ok");
+      this.openDialogWithTemplateRef(ref);
+      this.twsv.HeaderInputRef.nativeElement.value = "";
+      //this.twsv.inputData = "";
+    },e=>{console.log("tweet error")});
+
+  }
   getVid(tweet:Tweet):string {
     if(tweet.entities.urls.length==0)return null; 
     let m= tweet.entities.urls[0].display_url.match('youtu.be/(.+)');
