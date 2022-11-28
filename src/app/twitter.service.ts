@@ -84,11 +84,15 @@ export class TwitterService {
     return this.http.get<TwitterResponse>(`${environment.api}/search?query=${query}&maxResults=100`);
   }
 
-  tweet(msg: string) {
+  tweet(msg: string,...mArg) {
     var body:stmsg = {status: msg };
     var state = true;
-
-    return  this.http.get<TwitterResponse>(`${environment.api}/tweet?msg=${msg}`);
+    if(mArg.length>0){
+      console.log(mArg[0]);
+      return  this.http.get<TwitterResponse>(`${environment.api}/tweet?msg=${msg}&replay=${mArg[0]}`);
+    }else{
+      return  this.http.get<TwitterResponse>(`${environment.api}/tweet?msg=${msg}`);
+    }
   }
 
   action(property: 'favorite'|'retweet', id: string, state: boolean) {

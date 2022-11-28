@@ -192,9 +192,9 @@ export class TweetComponent implements OnInit {
 
   //返信の応答
   replayAction(tweet:Tweet,ref:TemplateRef<any>){
-    let msg = "@"+tweet.user.screen_name+this.twsv.HeaderInputRef.nativeElement.value
+    let msg = this.twsv.HeaderInputRef.nativeElement.value + " @"+tweet.user.screen_name
     console.log(msg);
-    this.twitter.tweet(msg)
+    this.twitter.tweet(msg,tweet.id_str)
     .subscribe(d=>{console.log("replay ok");
       this.openDialogWithTemplateRef(ref);
       this.twsv.HeaderInputRef.nativeElement.value = "";

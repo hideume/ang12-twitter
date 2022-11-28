@@ -51,7 +51,9 @@ export class AppComponent implements OnInit {
       this._snackbar.open('msg','tweetしました',
       {horizontalPosition:this.hPosition,
         verticalPosition:this.vPosition,
-        duration:3000})
+        duration:3000,
+        panelClass: "tweet"
+      })
     },e=>{console.log("tweet error")});
   }
 
