@@ -152,7 +152,7 @@ export class TweetComponent implements OnInit {
   action2(action,tweet:Tweet,ref:TemplateRef<any>) {
 
     const stateKey = action.property === 'favorite' ? 'favorited' : 'retweeted';
-    this.c_newState = action.property;
+    this.c_newState = action;
     //const newState = !action.tweet[stateKey];
     //これはreteetをトグルしないといけないのだがとりあえずtrueにする
     const newState = true;

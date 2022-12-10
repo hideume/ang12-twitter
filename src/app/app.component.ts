@@ -30,6 +30,7 @@ export class AppComponent implements OnInit {
 
   //初期設定で自分のuserをthis.userに設定する
   ngOnInit() {
+    this.twsv.HeaderInputRef = this.in1;
     this.twitter.user().subscribe(user => this.user = user.data);
   }
 
