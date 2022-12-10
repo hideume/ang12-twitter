@@ -222,4 +222,7 @@ export class TweetComponent implements OnInit {
       return false;
     }
   }
+  transe(){
+    console.log("trance");
+  }
 }

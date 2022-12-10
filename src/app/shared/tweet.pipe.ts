@@ -18,7 +18,13 @@ export class TweetPipe implements PipeTransform {
     let text = this.sanitizer.sanitize(SecurityContext.NONE, tweet.full_text);
     if (!text)text = tweet.text;
 
+    //絵文字（特に国旗）をimgtagに変換
     text = twemoji.parse(text);
+
+    //英語だけだったら「翻訳」を追加
+    if(this.checkEnglish(text)){
+      text = text+"<a href='aaa'>翻訳</a>";
+    }
 
     // Replace screen names with links
     if (tweet.entities.user_mentions) {
@@ -84,6 +90,23 @@ export class TweetPipe implements PipeTransform {
     return this.sanitizer.bypassSecurityTrustHtml(text);
   }
 
+  //全てが英文字であればtrue,日本語があればfalse
+  checkEnglish(text:string):boolean {
+    if(text.length>0){
+      for (let index = 0; index < text.length; index++) {
+        const element = text.codePointAt(index);
+        if(element>0xFF) return false;
+      }
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  transe(){
+    console.log("in pipe:trance");
+  }
+  
 }
 
 declare var twemoji: {

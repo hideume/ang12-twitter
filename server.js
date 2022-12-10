@@ -224,15 +224,29 @@ app.post('/api/retweet/:id', (req, res) => {
 
 app.get('/api/tweet', (req, res) => {
   const params = { status: req.query.msg };
-  //console.log('tweet:'+req.params.msg);
-  client
-    .post(`statuses/update`,params)
-    .then(tweet => {
-      //console.log("tweet ok"+req.params.status);
-      res.send(tweet)})
-    .catch(error => {
-      console.log("tweet erre = "+error);
-      res.send(error)});
+  console.log("replay="+req.query.replay);
+  const svid = req.query.replay;
+  if(req.query.replay==null){
+    client
+      .post(`statuses/update`,params)
+      .then(tweet => {
+        //console.log("tweet ok"+req.params.status);
+        res.send(tweet)})
+      .catch(error => {
+        console.log("tweet erre = "+error);
+        res.send(error)});
+  }else{
+      console.log("replay block replay="+svid);
+      const params2 = {status: req.query.msg,in_reply_to_status_id: svid};
+      client
+      .post(`statuses/update`,params2)
+      .then(tweet => {
+        //console.log("tweet ok"+req.params.status);
+        res.send(tweet)})
+      .catch(error => {
+        console.log("tweet erre = "+error);
+        res.send(error)});
+      }
 });
 
 
