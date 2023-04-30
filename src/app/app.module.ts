@@ -58,7 +58,7 @@ import { TextuserTimelineComponent } from './textuser-timeline/textuser-timeline
     TestComponent,
     TwgetComponent,
     TrendComponent,
-    TextuserTimelineComponent
+    TextuserTimelineComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,8 +83,9 @@ import { TextuserTimelineComponent } from './textuser-timeline/textuser-timeline
   exports: [
     UserTimelineComponent
   ],
-  providers: [TweetService,
-    TwitterService,
+  providers: [
+//    {provide: TweetService,useClass:  TweetService},
+//    TwitterService,
     AppRoutingModule
   ],
   bootstrap: [AppComponent],

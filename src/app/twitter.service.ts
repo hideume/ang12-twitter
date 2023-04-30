@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { throwError,Observable,Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { TweetService } from './shared/tweet.service';
 import { retry,catchError } from 'rxjs/operators';
 import { environment } from '../environments/environment';
 
@@ -25,7 +26,8 @@ export interface stmsg {
 export class TwitterService {
   
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient)
+    { }
 
   user() {
     return this.http.get<TwitterResponse>(`${environment.api}/user`);

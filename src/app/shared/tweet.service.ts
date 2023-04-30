@@ -10,12 +10,12 @@ import { Tweet } from './tweet';
 
 export class TweetService {
 
-tweets: Tweet[]=[];
+public tweets: Tweet[]=[];
 ids=[] ;
 timer;
-since = '';
+public since = '';
 //inputData;
-HeaderInputRef:ElementRef<any>;
+public HeaderInputRef:ElementRef<any>;
 
 constructor(private twitter: TwitterService) {
     console.log("-----TweetService constract");

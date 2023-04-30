@@ -20,7 +20,8 @@ export class SearchComponent implements OnInit {
     private twitterServ:TweetService,  //これ入れとかないと初期化してしまう？
     private route:ActivatedRoute
     ) { 
-      console.log("search const tws="+twitterServ.tweets.length);
+      //console.log("search const tws=" + this.twitterServ.tweets.length);
+      //console.log("tw since=" + this.twitterServ.since);
     }
 
 
@@ -62,20 +63,20 @@ export class SearchComponent implements OnInit {
     });
   };
 
-
-  ngOnChanges() {
-    console.log("change")
-  }
-
-  ngAfterViewChecked() {
-    //console.log("view checked")
-  }
-
-  public ngDestory() {
+  ngOnDestory():void {
     this.tweets = [];
     this.includes = [];
     this.usernames = [];
-  }
+  };
+
+  ngOnChanges() {
+    console.log("change")
+  };
+
+  ngAfterViewChecked() {
+    //console.log("view checked")
+  };
+
 
   nextpagefunc() {
       console.log("nextpage token="+this.nextpage);

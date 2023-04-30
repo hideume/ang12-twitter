@@ -3,7 +3,7 @@ import { Component , Input ,Output,OnInit,ViewChildren,
           QueryList, TemplateRef,
           ElementRef} from '@angular/core';
 import { Tweet } from './tweet';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog'
 // import { YouTubePlayer } from '@angular/youtube-player'
 import { TwitterService } from '../twitter.service';
@@ -39,6 +39,7 @@ export class TweetComponent implements OnInit {
     //public viewContainerRef: ViewContainerRef,
     //private resolver: ComponentFactoryResolver
     private route:Router, //routerLinkのために必要だと思っているのだが・・
+    private atoute:ActivatedRoute,
     private twitter:TwitterService,
     private twsv:TweetService,
     private dialog: MatDialog
@@ -222,7 +223,7 @@ export class TweetComponent implements OnInit {
       return false;
     }
   }
-  transe(){
-    console.log("trance");
+  transe(arg){
+    console.log("trance"+arg);
   }
 }

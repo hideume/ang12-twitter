@@ -4,6 +4,12 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { TwitterService } from '../twitter.service';
 import { TestBed } from '@angular/core/testing';
 
+declare var twemoji: {
+  convert: { fromCodePoint(str: string): string; }
+  parse(str: string, options?: { folder: string, ext: string }): string;
+};
+
+
 @Pipe({
   name: 'tweet'
 })
@@ -36,9 +42,11 @@ export class TweetPipe implements PipeTransform {
     // Replace # hashtag with links
     //text = text.replace(new RegExp('#(\\S+)([\\s|$])', 'gi'),`<a  [routerLink]=['/search/$1'] routerLinkActive="active fulffy">#\$1\$2</a>`);
     //text = text.replace(new RegExp('#(\\S+)([\\s|$])', 'gi'),'<a  [routerLink]="search/$1" routerLinkActive="active">#$1$2</a>');
-    //text = text.replace(new RegExp('#(\\S+)([\\s|$])', 'gi'),'<a  routerLink="/search/\$1" [routerLinkActive]="is-active">#\$1\$2</a>');
+    //text = text.replace(new RegExp('#(\\S+)([\\s|$])', 'gi'),`<a  routerLink="search/test"  routerLinkActive="active-link">#\$1\$2</a>`);
+    //text = text.replace(new RegExp('#(\\S+)([\\s|$])', 'gi'),'<a  routerLink='+"search/\$1"+'  routerLinkActive="active-link">#\$1\$2</a>');
     //text = text.replace(new RegExp('#(\\S+)([\\s|$])', 'gi'),'<a  [routerLink]="[\'/search/\$1\']" routerLinkActive="active fulffy">#\$1\$2</a>');
-    text = text.replace(new RegExp('#(\\S+)([\\s|$])', 'gi'),`<a  href="/search/\$1" >#\$1\$2</a>`);
+    text = text.replace(new RegExp('#(\\S+)([\\s|$])', 'gi'),`<a  href="search/\$1" >#\$1\$2</a>`);
+    //text = text.replace(new RegExp('#(\\S+)([\\s|$])', 'gi'),`<a  (click)="transe(/search/\$1)" >#\$1\$2</a>`);
 
 
     // Replace links with clickable links
@@ -103,14 +111,10 @@ export class TweetPipe implements PipeTransform {
     }
   }
 
-  transe(){
-    console.log("in pipe:trance");
+  transe(arg){
+    console.log("in pipe:trance"+arg);
   }
   
 }
 
-declare var twemoji: {
-  convert: { fromCodePoint(str: string): string; }
-  parse(str: string, options?: { folder: string, ext: string }): string;
-};
 

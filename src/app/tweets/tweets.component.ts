@@ -12,12 +12,13 @@ import { TweetService } from '../shared/tweet.service';
 })
 export class TweetsComponent implements OnInit  {
   inflight = false;
-  tweets: Tweet[]=[];
+  tweets: Tweet[];
 
   constructor(private tweetserv:TweetService,private twitter:TwitterService) {}
 
   ngOnInit() {
     if(this.tweetserv.tweets.length == 0){
+      //どっちにしても、tweetservの参照がthis.tweetsと一致する
       this.tweets = this.tweetserv.getTweets();
     }else{
       this.tweets = this.tweetserv.tweets;

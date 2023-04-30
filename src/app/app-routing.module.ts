@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule,Injectable } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LimitComponent } from '../app/limit/limit.component';
 import { TweetsComponent } from '../app/tweets/tweets.component';
@@ -13,6 +13,7 @@ import { TextuserTimelineComponent } from './textuser-timeline/textuser-timeline
 
 //const routes: Routes = [];
 
+
 const routes: Routes = [
   {path: '', component: TweetsComponent},
   {path: 'limit',component: LimitComponent},
@@ -21,14 +22,15 @@ const routes: Routes = [
   {path: 'users/:screen_name',component: UserComponent},
   {path: 'retweet/:id',component: RetweetComponent},
   {path: 'retweetg/:id',component: RetweetGraphComponent},
-  {path: 'search/:query',component: SearchComponent,pathMatch:'full'},
+  {path: 'search/:query',component: SearchComponent},
   {path: 'test',component: TestComponent},
   {path: 'trend',component: TrendComponent},
   {path: 'textuser-timeline/:screen_name',component: TextuserTimelineComponent},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
+  //imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
+  imports: [RouterModule.forRoot(routes )],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

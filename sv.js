@@ -8,13 +8,15 @@ let port = 4500;
 app.use(express.static('./dist/tw2'));
 
 // ルーティングの設定
-/*
 app.get("/", (req, res) =>{
   const name = req.body.name;
   res.send(`君の名は ${name}`);
   console.log("/ へアクセスがありました");
 });
-*/
+app.get("/search/:q", (req, res) =>{
+  res.send();
+  console.log("/ へアクセスがありました");
+});
 
 // HTTPサーバを起動する
 app.listen(port, () => {
